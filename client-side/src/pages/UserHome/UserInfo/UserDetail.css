@@ -1,0 +1,31 @@
+.UserDetailOuterContainer{
+    width: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    /* border: 1px solid black; */
+    height: 400px;
+
+    
+}
+
+.userdetaillabel{
+    font-weight: bold;
+    text-align: right;
+    color: rgb(0, 3, 191);
+    width: 100%;
+}
+
+.userdetaildata{
+    font-weight: bold;
+    text-align: left;
+    color: rgb(176, 38, 0);
+    width: 100%;
+}
+
+.userdetailtext{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
