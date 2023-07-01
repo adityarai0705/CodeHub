@@ -1,0 +1,72 @@
+#quickLinksAboutUsMain {
+    width: 100vw;
+    background-color: rgb(3, 3, 36);
+}
+
+#quickLinksBoxMain {
+    background-color:  rgb(3, 3, 36);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.quickLinksBoxContents {
+    background-color: rgb(77, 207, 254);
+    font-size: 20px;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+    margin: 5px;
+    padding: 15px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+    @media only screen and (max-width: 650px) {
+        width: 70%;
+    }
+
+    @media only screen and (max-width: 420px) {
+        width: 90%;
+        font-size: 15px;
+    }
+}
+.quickLinksBoxContents:hover{
+    background-color: rgb(13, 109, 193);
+    color: white;
+}
+#aboutUsMain {
+    background-color: rgb(3, 3, 36);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    cursor: default;
+}
+
+#aboutUsTitleMain {
+    text-align: left;
+    color: rgb(210, 13, 89);
+    width: 80%;
+    font-size: 50px;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    @media only screen and (max-width: 700px) {
+        width: 95%;
+        font-size: 30px;
+        margin-top: 15%;
+    }
+}
+
+#aboutUsContentMain {
+    width: 80%;
+    color:  rgb(77, 207, 254);
+    font-size: 20px;
+    text-align: justify;
+    @media only screen and (max-width: 700px) {
+        width: 95%;
+        font-size: 15px;
+    }
+}
