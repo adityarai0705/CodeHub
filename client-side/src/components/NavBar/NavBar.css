@@ -1,0 +1,229 @@
+@media only screen and (min-width: 800px) {
+    #navBar2Main {
+        display: none;
+    }
+
+    #navBar1Main {
+        background-color: rgb(3, 3, 36);
+        color: white;
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        padding: 5px;
+        font-size: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #navBar11Main img {
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .navBar121Main {
+        background-color: rgba(0, 0, 0, 0);
+        border: 0px;
+        color: white;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .navBar121Main:hover {
+        background-color: rgba(0, 0, 0, 0);
+        border: 0px;
+        color: rgb(181, 181, 181);
+    }
+
+    #navBar122Main {
+        margin: 0px 10px 0px 10px;
+        background-color: rgb(169, 229, 251);
+        border: 1px;
+        border-color: white;
+        border-radius: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 12px;
+        padding-right: 12px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+
+    }
+
+    #navBar122Main:hover {
+        background-color: rgb(13, 109, 193);
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #navBar1Main {
+        display: none;
+    }
+
+    #navBar2Main {
+        background-color: rgb(3, 3, 36);
+        color: white;
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        padding: 5px;
+        font-size: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #navBar21Main {
+        margin: 0px 10px 0px 10px;
+        background-color: rgb(169, 229, 251);
+        border: 2px;
+        border-color: white;
+        border-radius: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 12px;
+        padding-right: 12px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    #navBar21Main:hover {
+        background-color: rgb(13, 109, 193);
+        color: white;
+    }
+
+    #navBar23Main {
+        margin: 0px 10px 0px 10px;
+        background-color: rgb(169, 229, 251);
+        border: 2px;
+        border-color: white;
+        border-radius: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 12px;
+        padding-right: 12px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    #navBar23Main:hover {
+        background-color: rgb(13, 109, 193);
+        color: white;
+        
+
+    }
+
+    .navItemsMain li {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .navItemsMain li:hover {
+        /* border: 1px solid #fff; */
+        cursor: pointer;
+        color : rgb(135, 199, 255);
+        /* padding: 10px 20px; */
+    }
+
+    .navItemsMain li {
+        list-style: none;
+        padding: 16px 0;
+    }
+
+    .navItemsMain {
+        padding: 0px;
+        margin: 0 20px;
+        display: none;
+    }
+
+    .navChangedMain {
+        /* background-color: rgb(3, 3, 36); */
+        height: 100vh;
+        margin: 0;
+        position: absolute;
+        font-size: 30px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #navCloseMain {
+        position: absolute;
+        font-size: 50px;
+        top: 25px;
+        right: 25px;
+    }
+}
+
+.navChangedMain {
+    box-shadow: 0 0 5px 0 ;
+    background: inherit;
+    
+    animation-iteration-count: 1;
+    /* animation-name: blurring; */
+    animation-duration: 1s;
+    animation: blurring 0.5s forwards;
+    /* <!--margin: 100px; according to your need--> */
+}
+
+@keyframes blurring {
+    from {}
+    to { 
+        background-color: rgba(1, 1, 1, 0.250);
+        backdrop-filter: blur(25px); 
+    }
+}
+
+
+@media only screen and (min-width: 450px) and (max-width: 800px) {
+    #navBarLogo1Main {
+        height: 30px;
+    }
+
+    #navBarLogo2Main {
+        display: none;
+    }
+}
+
+.text-dg{
+    text-shadow: 0 0 15px black;
+}
+
+.gg-close {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,2));
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    border-radius: 40px
+}
+.gg-close::after,
+.gg-close::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 1px
+}
+.gg-close::after {
+    transform: rotate(-45deg)
+}
+
+@media only screen and (max-width: 450px) {
+    #navBarLogo1Main {
+        display: none;
+    }
+
+    #navBarLogo2Main {
+        height: 50px;
+    }
+}
