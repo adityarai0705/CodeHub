@@ -1,5 +1,7 @@
 import React from 'react';
 import UserHome from './pages/UserHome/UserHome';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Leaderboard from './pages/Leaderboard/Leaderboard';
 
 export default function App() {
   return (
