@@ -3,8 +3,11 @@ import UserHome from './pages/UserHome/UserHome';
 
 export default function App() {
   return (
-    <div>
-      <UserHome cfID={'Aditya.Rai'} />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/user-home' element={<UserHome cfID={"Aditya.Rai"}/>} />
+        <Route path="/leader-board" element={<Leaderboard />} />
+      </Routes>
+    </BrowserRouter >
   )
 }
