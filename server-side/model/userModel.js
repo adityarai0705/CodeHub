@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const authUserSchema = new mongoose.Schema({
     cfID: {
         type: String,
         required: true,
@@ -8,10 +8,15 @@ const userSchema = new mongoose.Schema({
         max: 50,
         unique: true,
     },
+    password: {
+        type: String,
+        required: true,
+        min: 8,
+    },
     visible: {
         type: Boolean,
         default: true,
     }
 });
 
-module.exports = mongoose.model("Users", userSchema);
+module.exports = mongoose.model("AuthUsers", authUserSchema);
