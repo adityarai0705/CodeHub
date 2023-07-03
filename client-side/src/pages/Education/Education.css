@@ -1,0 +1,33 @@
+.education-heading{
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgb(248, 6, 151);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 200;
+    text-align: center;
+}
+
+.edu-box{
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    height: 10rem;
+    width: auto;
+    border-radius: 10px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    border: 2px solid black;
+}
+
+.edu-title{
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: bold;
+    width: 100%;
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
+}
