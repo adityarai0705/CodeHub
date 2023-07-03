@@ -4,13 +4,16 @@ import './NoticeBoard.css';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
 import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
+import Alert from '../../components/Alert/Alert';
+import axios from 'axios';
 
 
-// Ishaan Aggrawal
 // Akhil Gupta
 
 
 // noticeList is a dummy data
+
+//notices
 const noticeList = [
     {
         title : `CodeTogether's Quarters 31`,
@@ -33,6 +36,7 @@ const noticeList = [
 ];
 
 
+//notice format
 function Notice(props)
 {
     return (
@@ -64,11 +68,24 @@ export default function NoticeBoard() {
     <Spinner />
   </>);
 
-  const updatePageHtml = () => {
-    setPageHtml(
+  const updatePageHtml = async () => {
+
+    try {
+        const LeaderboardAPIresponse = await axios.get('http://localhost:8080' + '/noticeboard');
+        const noticeBoardInfo = NoticeboardAPIresponse.data;
+
+        const noticeComponent = noticeBoardInfo.map((noticeInfo, index) => <Notice key={index} 
+        title={noticeInfo.title} date={noticeInfo.date} body={noticeInfo.body} _id={noticeInfo._id} />);
+
+
+
+    setPageHtml(<>
       <div>
           <NavBarSecond />
           <div className="background-pink-blue" style={{minHeight : '100vh'}}>
+          <div id='navBarLandingPageContainer'>
+                        {/* Space for NavBar */}
+          </div>
           <NavSpace />
           <div className='notice-heading'>Notice Board</div>
           {noticeList.map(CreateNotice)}
@@ -77,16 +94,26 @@ export default function NoticeBoard() {
           </div>
         </div>
     </div>
-  );
+   </>);
+    }
+    catch(err)
+    {
+        setPageHtml(
+            <>
+                <div className="background-pink-blue" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} />
+                </div>
+            </>
+        );
+    }
   }
-
   useEffect( () => {
 
     updatePageHtml();
-  }, );
+  }, []);
 
 
   return (
     <>{PageHtml}</>
-  )
+  );
 }
