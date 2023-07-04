@@ -3,6 +3,32 @@ const Feedback = require("../model/feedbackModel");
 const Notices = require("../model/noticeModel");
 const Videos = require("../model/videoModel");
 
+module.exports.adminLogin = async (req, res, next) => {
+    try {
+        const { username, password } = req.body;
+        const user = await Admins.findOne({ username: username });
+        if (!user) return res.json({ status: false, msg: "Incorrect Username or Password" });
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) return res.json({ status: false, msg: "Incorrect Username or Password" });
+        const cookieID = randomUUID();
+        const session = await AdminSessions.findOne({ username: username });
+        if (session)
+            await AdminSessions.remove({ username: username });
+        await AdminSessions.create({ username: username, cookieID: cookieID });
+        const cookie = jwt.sign(
+            { "cookieID": cookieID },
+            process.env.COOKIE_SECRET_KEY,
+            { expiresIn: "1d" }
+        );
+        res.cookie("jwt", cookie, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
+        return res.json({ status: true, data: { username: user.username } });
+    }
+    catch (ex) {
+        next(ex);
+    }
+
+};
+
 module.exports.notice = async (req, res, next) => {
     try {
         const notices = await Notices.find();
@@ -126,6 +152,21 @@ module.exports.feedback = async (req, res, next) => {
         return res.json({ status: true, data: feedback });
     }
     catch (ex) {
+        next(ex);
+    }
+
+};
+
+module.exports.adminLogout = async (req, res, next) => {
+    try {
+        if (!req.params.username)
+            return res.status(400).json({ status: false, msg: "Username is required" });
+        const username = req.params.username;
+        const session = await AdminSessions.findOne({ username: username });
+        if (session)
+            await AdminSessions.remove({ username: username });
+        return res.json({ status: true, msg: "Logged out" });
+    } catch (ex) {
         next(ex);
     }
 
