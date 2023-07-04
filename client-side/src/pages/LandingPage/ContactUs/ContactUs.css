@@ -1,0 +1,116 @@
+#contactpageid {
+    position: relative;
+    background-color: rgb(3, 3, 36);
+    width: 100vw;
+    overflow: hidden;
+}
+
+#contactheadlinecontainer {
+    width: 62%;
+    margin: auto;
+}
+
+.contact12headline {
+    color: rgba(255, 0, 128, 0.8);
+    font-size: 2.2rem;
+    font-weight: normal;
+    margin-top: 10%;
+    cursor: default;
+}
+
+#contact-boxContactusid textarea::placeholder {
+    color: rgb(169, 229, 251);
+}
+
+#contact-boxContactusid input::placeholder {
+    color: rgb(169, 229, 251);
+}
+
+#contact-boxContactusid form {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContactUspagebtn:hover {
+    background-color: rgb(13, 109, 193);
+    color: white;
+
+}
+
+#contact-boxContactusid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+    margin: auto;
+
+}
+
+#contact-boxContactusid textarea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    resize: none;
+    height: 40vh;
+}
+
+#contact-boxContactusid input,
+#contact-boxContactusid textarea {
+    background-color: transparent;
+    border: 2px solid #67CFFF;
+    width: 100%;
+    border-radius: 9px;
+    padding: 10px;
+    font-size: 1.1rem;
+    margin: 10px 0px;
+    color: rgb(158, 208, 251);
+    outline-color: rgb(158, 208, 251);
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+    /* cursor: pointer; */
+}
+
+#contact-boxContactusid form input:hover {
+    border: 2px solid rgb(13, 109, 193);
+}
+#contact-boxContactusid form textarea:hover {
+    border: 2px solid rgb(13, 109, 193);
+}
+
+@media screen and (min-width:555px) and (min-height:670px) {
+    .ContactUspagebtn {
+        background-color: rgb(169, 229, 251);
+        color: rgb(3, 3, 36);
+        font-size: 20px;
+        min-width: fit-content;
+        width: fit-content;
+        height: fit-content;
+        padding: 10px 20px 10px 20px;
+        border-radius: 10px;
+        border: none;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:555px),
+(max-height:670px) {
+    .ContactUspagebtn {
+        background-color: rgb(169, 229, 251);
+        color: rgb(3, 3, 36);
+        font-size: 18px;
+        width: 30%;
+        min-width: fit-content;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 10px;
+        padding: 10px 20px 10px 20px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+        border: none;
+    }
+}

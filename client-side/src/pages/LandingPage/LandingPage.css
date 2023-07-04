@@ -1,0 +1,10 @@
+#navBarLandingPageContainer {
+    width: 100vw;
+    position: fixed;
+    z-index: 1;
+}
+
+::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
