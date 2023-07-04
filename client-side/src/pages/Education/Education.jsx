@@ -1,75 +1,66 @@
-import React from 'react'
-import '../pages.css'
-import './Education.css'
+import React, { useState, useEffect } from 'react';
+import '../pages.css';
+import './Education.css';
+import Spinner from '../../components/Spinner/Spinner';
+import NavSpace from '../../components/NavSpace';
+import axios from 'axios';
 
-// educationCategories is a dummy data
-const educationCategories = [
-    {
-        title : 'Editorials',
-        _id : 'dummy232234'
-    },
-    {
-        title : 'Dynamic Programming',
-        _id : 'dummy232234'
-    },
-    {
-        title : 'Greedy',
-        _id : 'dummy232234'
-    },
-    {
-        title : 'Graphs',
-        _id : 'dummy232234'
-    },
-    {
-        title : 'Backtracking',
-        _id : 'dummy232234'
-    },
-    {
-        title : 'C/C++',
-        _id : 'dummy232234'
-    },
-    {
-        title : 'Java',
-        _id : 'dummy232234'
-    },
-    {
-        title : 'Game Theory',
-        _id : 'dummy232234'
-    }
-];
 
-function EduSection(props)
-{
+function EduSection(props) {
     return (
         <div>
             <div className="super-box">
-            <div className="edu-box">
-                <div className="edu-title">{props.title}</div>
-            </div>
+                <div className="edu-box">
+                    <div className="edu-title">{props.title}</div>
+                </div>
             </div>
         </div>
-    );
-}
-
-function CreateList(props)
-{
-    return (
-        <EduSection
-         key={props._id}
-         title={props.title}
-         />
     );
 }
 
 export default function Education() {
-  return (
-    <div className="background-pink-blue">
-        <div className='education-heading'>Education</div>
-        <div className='EducationOuterContainer'>
-            <div className='EducationInnerContainer'>
-                {educationCategories.map(EduSection)}
-            </div>
-        </div>
-    </div>
-  )
+
+    const [PageHtml, setPageHtml] = useState(<>
+        <NavSpace />
+        <Spinner />
+    </>);
+
+    const updatePageHtml = async () => {
+
+        try {
+            const EducationAPIresponse = await axios.get('http://localhost:8080' + '/education');
+            const EducationInfo = EducationAPIresponse.data;
+
+            setPageHtml(<>
+                <div className="background-pink-blue">
+                    <div className='education-heading'>Education</div>
+                    <div className='EducationOuterContainer'>
+                        <div className='EducationInnerContainer'>
+                            {EducationInfo.map(EduSection)}
+                        </div>
+                    </div>
+                </div>
+            </>);
+        } catch (err) {
+            setPageHtml(
+                <>
+                    <div className="background-pink-blue" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} />
+                    </div>
+                </>
+            );
+        }
+    }
+
+
+    useEffect(() => {
+        updatePageHtml();
+    }, []);
+
+
+    return (
+        <>
+            {PageHtml}
+        </>
+    );
 }
