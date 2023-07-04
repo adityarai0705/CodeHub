@@ -7,7 +7,7 @@ export default function ContestRankGraph(props) {
     const RatingChangeData = props.ratingdata.map((elt) => {
         let curelt = {
             'name': elt.contestName,
-            'uv': (100001 - elt.rank) / 100000,
+            'uv': ((10001 - elt.rank) / 10000) > 0 ? ((10001 - elt.rank) / 10000) : 0,
             'amt': elt.newRating
         }
         return curelt;

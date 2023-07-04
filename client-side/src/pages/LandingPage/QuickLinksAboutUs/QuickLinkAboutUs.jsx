@@ -17,7 +17,7 @@ export default function QuickLinkAboutUs() {
                 <div onClick={() => navigate("/demoLink")} className='quickLinksBoxContents'>
                     Join CodeForces Group
                 </div>
-                <div onClick={() => navigate("/demoLink")} className='quickLinksBoxContents'>
+                <div onClick={() => navigate("/notice-board")} className='quickLinksBoxContents'>
                     Visit our Notice Board
                 </div>
                 <div onClick={() => navigate("/demoLink")} className='quickLinksBoxContents'>

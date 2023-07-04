@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/education/videos" element={<VideoLists />} />
         <Route path="/education" element={<Education />} />
-        <Route path="/notice" element={<NoticeBoard />} />
+        <Route path="/notice-board" element={<NoticeBoard />} />
         <Route path='/user-home' element={<UserHome cfID={"Aditya.Rai"}/>} />
         <Route path="/leader-board" element={<Leaderboard />} />
       </Routes>

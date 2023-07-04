@@ -3,7 +3,8 @@ import './VideoLists.css';
 import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
 import axios from 'axios';
-// import Alert from '../../components/Alert/Alert';
+import NavBarSecond from '../../components/NavBar/NavBarSecond';
+import Alert from '../../components/Alert/Alert';
 
 
 function VideoTile(props) {
@@ -32,22 +33,32 @@ export default function VideoLists(props) {
             const VideoAPIresponse = await axios.get('http://localhost:8080' + '/education/videos');
             const VideoInfo = VideoAPIresponse.data;
 
-            const VideoLists = VideoInfo.map( (video, index) =>
+            const VideoLists = VideoInfo.map((video, index) =>
                 <VideoTile key={index} title={video.title} date={video.date} ytLink={video.ytLink} _id={video._id} />
             );
-            setPageHtml(<div>
-                <div className="background-pink-blue" style={{ minHeight: '100vh' }}>
-                    <div className='videoList-heading'><small>Education</small>/{props.heading}</div>
-                    <div className='videoContainer'>
-                        {VideoLists}
+            setPageHtml(<>
+                <div>
+                    <div className="background-pink-blue" style={{ minHeight: '100vh' }}>
+                        <div className='navBarContainer'>
+                            <NavBarSecond />
+                        </div>
+                        <NavSpace />
+                        <div className='videoList-heading'><small>Education</small>/{props.heading}</div>
+                        <div className='videoContainer'>
+                            {VideoLists}
+                        </div>
                     </div>
                 </div>
-            </div>);
+            </>);
         } catch (err) {
             setPageHtml(
                 <>
+                    <div id='navBarLandingPageContainer'>
+                        <NavBarSecond />
+                    </div>
+                    <NavSpace />
                     <div className="background-pink-blue" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        {/* <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} /> */}
+                        <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} />
                     </div>
                 </>
             );

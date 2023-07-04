@@ -36,16 +36,16 @@ export default function NavBarSecond() {
             {/* --------------HTML FOR DESKTOP EXPERIENCE---------------- */}
             <div id='navBar1Main'>
                 <div id='navBar11Main'>
-                    <img onClick={() => navigate("/demoLink")} src={CodeTogetherSingleLine} alt="Code Together" />
+                    <img onClick={() => navigate("/")} src={CodeTogetherSingleLine} alt="Code Together" />
                 </div>
                 <div id='navBar12Main'>
                     <button onClick={() => navigate("/user-home")} className='navBar121Main'>
-                        Home
+                        Profile
                     </button>
                     <button onClick={() => navigate("/leader-board")} className='navBar121Main'>
                         Leader Board
                     </button>
-                    <button onClick={() => navigate("/demoLink")} className='navBar121Main'>
+                    <button onClick={() => navigate("/education")} className='navBar121Main'>
                         Education
                     </button>
                     <button onClick={() => navigate("/notice-board")} className='navBar121Main'>
@@ -61,7 +61,7 @@ export default function NavBarSecond() {
             {/* -----------------HTML FOR MOBILE/TABLET EXPERIENCE--------------- */}
             <div id='navBar2Main'>
                 <div>
-                    <button onClick={() => navigate("/demoLink")} id='navBar21Main'>
+                    <button onClick={() => navigate("/")} id='navBar21Main'>
                         Log out
                     </button>
                 </div>
@@ -77,9 +77,9 @@ export default function NavBarSecond() {
                         <div id='navCloseMain'>
                             <div id='navCloseMain' className='gg-close'></div>
                         </div>
-                        <li className='text-dg' onClick={() => navigate("/user-home")}>Home</li>
+                        <li className='text-dg' onClick={() => navigate("/user-home")}>Profile</li>
                         <li className='text-dg' onClick={() => navigate("/leader-board")} >Leader Board</li>
-                        <li className='text-dg' onClick={() => navigate("/demoLink")}>Education</li>
+                        <li className='text-dg' onClick={() => navigate("/education")}>Education</li>
                         <li className='text-dg' onClick={() => navigate("/notice-board")}>Notice Board</li>
                         {/* <li onClick={() => navigate("/demoLink")}>Home</li>
                         <li onClick={() => navigate("/demoLink")} >Leader Board</li>

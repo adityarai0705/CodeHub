@@ -5,6 +5,7 @@ import axios from 'axios';
 import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
 import Alert from '../../components/Alert/Alert';
+import NavBarSecond from '../../components/NavBar/NavBarSecond';
 
 
 function LeaderUser(props) {
@@ -44,9 +45,9 @@ export default function Leaderboard() {
 
             setPageHtml(<>
                 <div>
-                    <div className="background-pink-blue" style={{ minHeight: '100vh' }}>
+                    <div className="background-pink-blue">
                         <div id='navBarLandingPageContainer'>
-                            {/* Space for NavBar */}
+                            <NavBarSecond />
                         </div>
                         <NavSpace />
                         <div className='leader-heading'>Leaderboard</div>
@@ -59,6 +60,10 @@ export default function Leaderboard() {
         } catch (err) {
             setPageHtml(
                 <>
+                    <div id='navBarLandingPageContainer'>
+                        <NavBarSecond />
+                    </div>
+                    <NavSpace />
                     <div className="background-pink-blue" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} />
                     </div>

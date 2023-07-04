@@ -1,5 +1,7 @@
 .background-pink-blue {
     background: linear-gradient(269deg, #ffccf4, #a9d6ff);
+    padding-bottom: 100px;
+    min-height: 100vh;
     background-size: 400% 400%;
 
     -webkit-animation: AnimationBackgroundLight 18s ease infinite;

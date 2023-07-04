@@ -36,7 +36,7 @@ export default function NavBar() {
             {/* --------------HTML FOR DESKTOP EXPERIENCE---------------- */}
             <div id='navBar1Main'>
                 <div id='navBar11Main'>
-                    <img onClick={() => navigate("/demoLink")} src={CodeTogetherSingleLine} alt="Code Together" />
+                    <img onClick={() => navigate("/")} src={CodeTogetherSingleLine} alt="Code Together" />
                 </div>
                 <div id='navBar12Main'>
                     <button onClick={() => scroll("welcomeMain")} className='navBar121Main'>
@@ -70,7 +70,7 @@ export default function NavBar() {
             {/* -----------------HTML FOR MOBILE/TABLET EXPERIENCE--------------- */}
             <div id='navBar2Main'>
                 <div>
-                    <button onClick={() => navigate("/demoLink")} id='navBar21Main'>
+                    <button onClick={() => navigate("/")} id='navBar21Main'>
                         Login
                     </button>
                 </div>

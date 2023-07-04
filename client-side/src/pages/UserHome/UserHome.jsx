@@ -14,13 +14,19 @@ import ProblemDetails from './ProblemDetails/ProblemDetails';
 import Languages from './Graphs/Languages';
 import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
+import NavBarSecond from '../../components/NavBar/NavBarSecond';
+import Alert from '../../components/Alert/Alert';
 
 
 export default function UserHome(props) {
 
     // Declared Data members
 
-    const [UserHomeHtml, setUserHomeHtml] = useState(<><NavSpace /><Spinner /></>);
+    const [PageHtml, setPageHtml] = useState(<>
+        <NavSpace />
+        <Spinner />
+    </>);
+
     const cfID = props.cfID;
     let userData = { status: "", data: {} };
     let userRating = { status: "", data: {} };
@@ -153,9 +159,11 @@ export default function UserHome(props) {
                 return null;
             });
 
-            setUserHomeHtml(
+            setPageHtml(
                 <div className='background-pink-blue'>
-                    <div className='navBarContainer'></div>
+                    <div className='navBarContainer'>
+                        <NavBarSecond />
+                    </div>
                     <NavSpace />
                     <div className='UserHomeOuterContainer'>
                         <div className='UserHomeInnerContainer'>
@@ -178,13 +186,21 @@ export default function UserHome(props) {
                                 <ProblemDetails problemData={userSubmissions.data} />
                             </div>
                         </div>
-                        <div style={{ height: '80px' }}></div>
                     </div>
                 </div>
             );
         } catch (error) {
-            // Failed component is ye to be made.
-            console.error(error);
+            setPageHtml(
+                <>
+                    <div id='navBarLandingPageContainer'>
+                        <NavBarSecond />
+                    </div>
+                    <NavSpace />
+                    <div className="background-pink-blue" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} />
+                    </div>
+                </>
+            );
         }
     }
 
@@ -195,6 +211,6 @@ export default function UserHome(props) {
 
 
     return (
-        <>{UserHomeHtml}</>
+        <>{PageHtml}</>
     );
 }
