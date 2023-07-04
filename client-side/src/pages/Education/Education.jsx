@@ -42,8 +42,10 @@ function EduSection(props)
 {
     return (
         <div>
+            <div className="super-box">
             <div className="edu-box">
                 <div className="edu-title">{props.title}</div>
+            </div>
             </div>
         </div>
     );
@@ -62,8 +64,13 @@ function CreateList(props)
 export default function Education() {
   return (
     <div className="background-pink-blue">
-        <div className="education-heading">Education Section</div>
-        {educationCategories.map(EduSection)}
+        {/* <div className="education-heading">Education Section</div> */}
+        <div className='education-heading'>Leaderboard</div>
+        <div className='EducationOuterContainer'>
+            <div className='EducationInnerContainer'>
+                {educationCategories.map(EduSection)}
+            </div>
+        </div>
     </div>
   )
 }
