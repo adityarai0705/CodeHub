@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 
-const noticeSchema = new mongoose.Schema({
-    title: {
+const adminSessionSchema = new mongoose.Schema({
+    username: {
         type: String,
         required: true,
         min: 1,
-        max: 100,
+        max: 50,
         unique: true,
     },
-    body: {
+    cookieID: {
         type: String,
         required: true,
-        unique: true,
     }
 });
 
-module.exports = mongoose.model("Notices", noticeSchema);
+module.exports = mongoose.model("AdminSessions", adminSessionSchema);

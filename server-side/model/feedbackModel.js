@@ -17,10 +17,6 @@ const feedbackSchema = new mongoose.Schema({
     message: {
         type: String,
         required: true,
-    },
-    visible: {
-        type: Boolean,
-        default: true,
     }
 });
 

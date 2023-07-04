@@ -7,10 +7,6 @@ const educationCategorySchema = new mongoose.Schema({
         min: 1,
         max: 100,
         unique: true,
-    },
-    visible: {
-        type: Boolean,
-        default: true,
     }
 });
 
