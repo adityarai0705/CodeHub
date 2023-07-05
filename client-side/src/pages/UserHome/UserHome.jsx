@@ -16,6 +16,7 @@ import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
 import Alert from '../../components/Alert/Alert';
+import Footer from '../../components/Footer/Footer';
 
 
 export default function UserHome(props) {
@@ -160,6 +161,7 @@ export default function UserHome(props) {
             });
 
             setPageHtml(
+                <>
                 <div className='background-pink-blue'>
                     <div className='navBarContainer'>
                         <NavBarSecond />
@@ -188,6 +190,8 @@ export default function UserHome(props) {
                         </div>
                     </div>
                 </div>
+                <Footer />
+                </>
             );
         } catch (error) {
             setPageHtml(

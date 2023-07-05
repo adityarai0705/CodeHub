@@ -6,7 +6,7 @@ import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
 import Alert from '../../components/Alert/Alert';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
-
+import Footer from '../../components/Footer/Footer';
 
 function LeaderUser(props) {
     return (
@@ -14,7 +14,8 @@ function LeaderUser(props) {
             <div className="leader-box">
                 <div className=''>
                     <span style={{ marginRight: '5px' }}>
-                        {props.rank}
+                        
+                        <b>#{props.rank}</b>
                     </span>
                     <span>
                         {props.name}
@@ -55,6 +56,7 @@ export default function Leaderboard() {
                             {noticeComponent}
                         </div>
                     </div>
+                    <Footer />
                 </div>
             </>);
         } catch (err) {

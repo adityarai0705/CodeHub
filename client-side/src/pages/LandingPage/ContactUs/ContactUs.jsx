@@ -1,5 +1,6 @@
 import React from 'react';
 import './ContactUs.css';
+import Footer from '../../../components/Footer/Footer';
 
 export default function ContactUs() {
 
@@ -11,6 +12,7 @@ export default function ContactUs() {
 
 
   return (
+    <>
     <section id="contactpageid">
       <div id='contactheadlinecontainer'>
         <h1 className="contact12headline">ContactUs</h1>
@@ -24,5 +26,7 @@ export default function ContactUs() {
         </form>
       </div>
     </section>
+    <Footer />
+    </>
   )
 }

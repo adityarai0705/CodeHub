@@ -5,6 +5,7 @@ import Spinner from '../../components/Spinner/Spinner';
 import axios from 'axios';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
 import Alert from '../../components/Alert/Alert';
+import Footer from '../../components/Footer/Footer';
 
 
 function VideoTile(props) {
@@ -48,6 +49,7 @@ export default function VideoLists(props) {
                             {VideoLists}
                         </div>
                     </div>
+                    <Footer />
                 </div>
             </>);
         } catch (err) {

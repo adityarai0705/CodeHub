@@ -11,7 +11,7 @@ export default function Alert(props) {
             <p className='textAlert'>
                 {props.body}
             </p>
-            <div className='tryAgain' onClick={ () => {window.location.reload()}}>Try again</div>
+            <div className='tryAgain' onClick={ () => {window.location.reload()}}>Reload this page</div>
         </div>
     </div>
   )

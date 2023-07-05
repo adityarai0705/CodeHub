@@ -6,6 +6,7 @@ import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
 import Alert from '../../components/Alert/Alert';
 import axios from 'axios';
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -60,6 +61,7 @@ export default function NoticeBoard() {
               This was the last Notice from CodeTogether. Either no Notice prior to this was ever created or they have been deleted by the admins.
             </div>
           </div>
+          <Footer />
         </div>
       </>);
     }

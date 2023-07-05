@@ -6,6 +6,7 @@ import NavSpace from '../../components/NavSpace';
 import Alert from '../../components/Alert/Alert';
 import axios from 'axios';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
+import Footer from '../../components/Footer/Footer';
 
 function EduSection(props) {
     const _id = props._id;
@@ -48,6 +49,7 @@ export default function Education() {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </>);
         } catch (err) {
             setPageHtml(
