@@ -1,0 +1,107 @@
+body {
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
+  .notice-container {
+    background-color: rgb(233, 231, 231);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    height: 100vh;
+  }
+  .notice-heading1 {
+    margin-top: 5%;
+    font-size: 40px;
+  }
+  .notice-heading2 {
+    margin-top: 0;
+    font-size: 30px;
+  }
+  .notice-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin-top: 1%;
+  }
+  .sub-container {
+    display: flex;
+    align-items: top;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .notice-label {
+    margin: 5px 10px auto auto;
+    width: 7%;
+    text-align: right;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding-right: 10px;
+  }
+  .notice-input {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 90%;
+    border: none;
+    box-shadow: 3px 5px 10px #393646;
+  }
+  .notice-body {
+    padding: 5px;
+    width: 90%;
+    box-shadow: 3px 5px 10px #393646;
+  }
+  .notice-button {
+    padding: 10px 20px;
+    margin-top: 4%;
+    background-color: rgb(9, 64, 243);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 120%;
+    letter-spacing: 1.5px;
+  }
+  .notice-button:hover {
+    background-color: #ff90bb;
+  }
+  /* .error-pop-up {
+    margin-top: 10px;
+    color: red;
+  }
+  .success-pop-up {
+    margin-top: 10px;
+    color: green;
+  } */
+  @media (max-width: 600px) {
+    .notice-form {
+      margin-top: 5%;
+      width: 80%;
+    }
+    .notice-heading1 {
+      margin-top: 10%;
+      font-size: 30px;
+      text-align: center;
+    }
+    .notice-heading2 {
+      margin-top: 5%;
+      font-size: 25px;
+    }
+    .sub-container {
+      flex-direction: column;
+    }
+    .notice-label {
+      margin-left: 5px;
+    }
+    .notice-input {
+      margin: 5px auto auto 5px;
+    }
+    .notice-body {
+      margin: 5px auto auto 5px;
+    }
+    .notice-button {
+      width: 60%;
+      font-size: 100%;
+    }
+  }
