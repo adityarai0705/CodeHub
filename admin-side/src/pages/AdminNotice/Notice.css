@@ -1,0 +1,32 @@
+.notice-box{
+    border: 0.7px solid black;
+    margin: 10px;
+    padding: 10px;
+    width: 90%;
+}
+
+.notice-title{
+    width: 100%;
+    font-weight: bold;
+}
+
+.notice-date{
+    width: 100%;
+    font-family: small;
+}
+
+.notice-body{
+    width: 100%;
+}
+
+pre {
+    white-space: pre-wrap;
+  }
+
+.NoticeListContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
