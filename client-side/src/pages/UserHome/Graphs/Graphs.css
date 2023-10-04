@@ -1,0 +1,67 @@
+.QuestionRatingContainer{
+    width: 100%;
+    height: 400px;
+    margin-bottom: 80px;
+}
+
+.LineContainer{
+    width: 100%;
+    height: 400px;
+    margin-top: 15px;
+    margin-bottom: 80px;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .LineContainer{
+        height: 300px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .LineContainer{
+        height: 250px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .LineContainer{
+        height: 200px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .LineContainer{
+        height: 170px;
+    }
+}
+@media screen and (max-width: 470px) {
+    .LineContainer{
+        height: 150px;
+    }
+}
+@media screen and (max-width: 390px) {
+    .LineContainer{
+        height: 120px;
+    }
+}
+
+.VerdictContainer{
+    width: 100vw;
+    height: 40vw;
+    display: flex;
+    justify-content: center;
+}
+
+.VerdictLegendItems{
+    text-align: left;
+    font-size: small;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 660px) {
+    .VerdictContainer{
+        width: 100vw;
+        height: 80vw;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+}

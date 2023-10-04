@@ -1,0 +1,161 @@
+/* This section is for RatingCard */
+
+.RatingNewbie                   { background: linear-gradient(304deg, #7A7A7A, #262525); box-shadow: 0px 0px 5px #7A7A7A;}
+.RatingPupil                    { background: linear-gradient(304deg, #55B638, #036207); box-shadow: 0px 0px 5px #55B638;}
+.RatingSpecialist               { background: linear-gradient(304deg, #1BE7D7, #4366E4); box-shadow: 0px 0px 5px #1BE7D7;}
+.RatingExpert                   { background: linear-gradient(304deg, #0000F5, #8900F5); box-shadow: 0px 0px 5px #0000F5;}
+.RatingCandidateMaster          { background: linear-gradient(304deg, #D825E4, #9800F5); box-shadow: 0px 0px 5px #D825E4;}
+.RatingMaster                   { background: linear-gradient(304deg, #F09235, #F5BF00); box-shadow: 0px 0px 5px #F09235;}
+.RatingInternationalMaster      { background: linear-gradient(304deg, #F67B00, #F54A00); box-shadow: 0px 0px 5px #F67B00;}
+.RatingGrandMaster              { background: linear-gradient(304deg, #FF0000, #FF6565); box-shadow: 0px 0px 5px #FF0000;}
+.RatingInternationalGrandMaster { background: linear-gradient(304deg, #FF0000, #97001B); box-shadow: 0px 0px 5px #FF0000;}
+.RatingLegendaryGrandMaster     { background: linear-gradient(304deg, #D00000, #2C0000); box-shadow: 0px 0px 5px #D00000;}
+
+
+.RatingCard {
+    margin: 5%;
+    padding: 15px;
+    border-radius: 15px;
+    height: 250px;
+    width: 450px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: white;
+    font-weight: bolder;
+    font-size: xx-large;
+    background-size: 400% 400%;
+    -webkit-animation: AnimationRatingCard 15s ease infinite;
+    -moz-animation: AnimationRatingCard 15s ease infinite;
+    animation: AnimationRatingCard 15s ease infinite;
+}
+
+@media screen and (max-width: 1100px) {
+    .RatingCard {
+        padding: 11px;
+        border-radius: 11px;
+        height: 220px;
+        width: 396px;
+        font-size: x-large;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .RatingCard {
+        padding: 8px;
+        border-radius: 8px;
+        height: 180px;
+        width: 324px;
+        font-size: larger;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .RatingCard {
+        padding: 8px;
+        border-radius: 8px;
+        height: 140px;
+        width: 252px;
+        font-size: larger;
+    }
+}
+
+@-webkit-keyframes AnimationRatingCard {
+    0%{background-position:0% 5%}
+    50%{background-position:100% 96%}
+    100%{background-position:0% 5%}
+}
+@-moz-keyframes AnimationRatingCard {
+    0%{background-position:0% 5%}
+    50%{background-position:100% 96%}
+    100%{background-position:0% 5%}
+}
+@keyframes AnimationRatingCard { 
+    0%{background-position:0% 5%}
+    50%{background-position:100% 96%}
+    100%{background-position:0% 5%}
+}
+
+/* RatingCard section ends here */
+
+
+
+/* This section is for ImageContainer */
+
+.PfpConainter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.OuterCirclePfp {
+    height: 250px;
+    width: 250px;
+}
+.InnerCirclePfp {
+    height: 238px;
+    width: 238px;
+}
+
+@media screen and (max-width: 1100px) {
+    .OuterCirclePfp {
+         height: 220px;
+         width: 220px;
+    }
+    .InnerCirclePfp {
+        height: 208px;
+        width: 208px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .OuterCirclePfp {
+         height: 180px;
+         width: 180px;
+    }
+    .InnerCirclePfp {
+        height: 168px;
+        width: 168px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .OuterCirclePfp {
+        height: 324px;
+        width: 324px;
+   }
+   .InnerCirclePfp {
+        height: 312px;
+        width: 312px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .OuterCirclePfp {
+         height: 252px;
+         width: 252px;
+    }
+    .InnerCirclePfp {
+        height: 240px;
+        width: 240px;
+    }
+}
+
+/* ImageContainer section ends here */
+
+
+/* NavBar section starts here */
+
+.NavSpace{
+    height: 44px;
+}
+@media screen and (max-width: 450px) {
+    .NavSpace{
+        height: 64px;
+    }
+}
+
+/* NavBar section ends here */

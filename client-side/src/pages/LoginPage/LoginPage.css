@@ -1,0 +1,136 @@
+#loginPageMain1 {
+    height: 100vh;
+    width: 100vw;
+    background-color: transparent;
+    background-image: url("./Assets/Logos/CodeTogetherLogo.png"), linear-gradient(70.18deg, #4160FF 20%, transparent);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#loginPageMain2 {
+    height: 100vh;
+    width: 100vw;
+    background-color: transparent;
+    background-image: linear-gradient(70.18deg, transparent, #69DEFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loginMainPageTitle {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40%;
+}
+
+#loginForm {
+    width: 35%;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.24);
+    border-radius: 15px;
+    position: relative;
+    left: 200px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    border: 1px solid #000000;
+}
+
+#loginFormUsername {
+    width: 80%;
+    height: 48px;
+    background-color: #CEBFFF;
+    color: black;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    margin: 10px;
+    padding-left: 10px;
+}
+
+#loginFormUsername::placeholder {
+    color: black;
+}
+#loginFormUsername:focus {
+    color: black;
+    outline: #000000;
+}
+
+#loginFormPassword {
+    width: 80%;
+    height: 48px;
+    background-color: #CEBFFF;
+    color: black;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    margin: 10px;
+    padding-left: 10px;
+}
+
+#loginFormPassword::placeholder {
+    color: black;
+}
+#loginFormPassword:focus {
+    color: black;
+    outline: #000000;
+}
+
+#loginFormButton {
+    background-color: #4C48FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 13px 18px 13px 18px;
+    transition: 0.2s;
+}
+
+#loginFormButton:hover {
+    background-color: #312ebd;
+    cursor: pointer;
+}
+
+@media screen and (max-width:500px) {
+    #loginMainPageTitle {
+        position: absolute;
+        top: 20px;
+        right: 5px;
+        width: 90%;
+    }
+    #loginForm {
+        width: 80%;
+        left: 0px;
+        bottom: 0px;
+    }
+    #loginPageMain1 {
+        background-position: bottom;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:700px) {
+    #loginMainPageTitle {
+        position: absolute;
+        top: 20px;
+        width: 60%;
+    }
+    #loginForm {
+        width: 70%;
+        left: 0px;
+        bottom: 0px;
+    }
+    #loginPageMain1 {
+        background-position: bottom;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:900px) {
+    #loginForm {
+        width: 50%;
+        left: 0px;
+        bottom: 0px;
+    }
+}

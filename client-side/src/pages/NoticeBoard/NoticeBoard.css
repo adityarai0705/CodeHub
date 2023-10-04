@@ -1,0 +1,50 @@
+.notice-heading {
+    font-size: xx-large;
+    color: #F94479;
+    text-align: center;
+    padding: 20px;
+}
+.notice-box {
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(255, 252, 249);
+    color: rgb(105, 53, 0);
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid black;
+}
+.notice-title {
+    font-weight: bold;
+    width: 100%;
+    font-size: larger;
+    text-align: left;
+}
+.notice-date {
+    width: 100%;
+    text-align: left;
+    font-size: smaller;
+    margin-bottom: 5px;
+}
+.notice-body {
+    text-align: justify;
+    width: 100%;
+}
+pre {
+    white-space: pre-wrap;
+  }
+.notice-footer {
+    text-align: center;
+    font-size: small;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+@keyframes App-logo-spin {
+    from {
+         transform: rotate(0deg);
+    }
+    to {
+         transform: rotate(360deg);
+    }
+}

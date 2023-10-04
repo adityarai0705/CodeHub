@@ -1,0 +1,80 @@
+.super-box {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     margin: 10px;
+}
+.education-heading {
+     font-size: xx-large;
+     color: #f94479;
+     text-align: center;
+     padding: 20px;
+}
+.edu-box {
+     background-color: white;
+     background: linear-gradient(135deg, white, azure);
+     height: 150px;
+     width: 500px;
+     text-align: justify;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 10px;
+     box-shadow: 0 0 10px rgba(48, 48, 48, 0.373);
+     border: 0.7px solid black;
+}
+.edu-box:hover {
+     cursor: pointer;
+     background: linear-gradient(90deg, white, white);
+     border-width: 1.2px;
+     box-shadow: 0 0 3px rgba(48, 48, 48, 0.373);
+}
+.edu-title {
+     font-weight: light;
+     width: 90%;
+     color: black;
+     font-size: 1.5rem;
+     text-align: center;
+}
+
+.EducationOuterContainer {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.EducationInnerContainer {
+     width: 1566px;
+     display: flex;
+     justify-content: start;
+     align-items: center;
+     flex-direction: row;
+     flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1565px) {
+     .EducationInnerContainer {
+          width: 1044px;
+     }
+}
+
+@media screen and (max-width: 1044px) {
+     .EducationInnerContainer {
+          width: 522px;
+     }
+}
+
+@media screen and (max-width: 522px) {
+     .edu-box {
+          height: 100px;
+          width: 80vw;
+     }
+     .EducationInnerContainer {
+          width: 100%;
+          justify-content: center;
+     }
+     /* .EducationOuterContainer{
+        width: 100%;
+    } */
+}

@@ -1,0 +1,203 @@
+#motiveAchievementsMain {
+    width: 100vw;
+    background-color: rgb(3, 3, 36);
+    cursor: default;
+}
+
+#motiveMain {
+    background-color: rgb(3, 3, 36);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+#motiveTitleMain {
+    text-align: right;
+    color: rgb(210, 13, 89);
+    width: 80%;
+    font-size: 50px;
+    margin-bottom: 2%;
+    margin-top: 5%;
+
+    @media only screen and (max-width: 700px) {
+        width: 95%;
+        font-size: 30px;
+        margin-top: 15%;
+    }
+}
+
+#motiveContentMain {
+    width: 80%;
+    color: rgb(0, 204, 255);
+    font-size: 20px;
+    text-align: justify;
+
+    @media only screen and (max-width: 700px) {
+        width: 95%;
+        font-size: 15px;
+    }
+}
+
+#achievementsMain {
+    background-color: rgb(3, 3, 36);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+#achievementsTitleMain {
+    text-align: left;
+    color: rgb(210, 13, 89);
+    width: 80%;
+    font-size: 50px;
+    margin-top: 5%;
+
+    @media only screen and (max-width: 700px) {
+        width: 95%;
+        font-size: 30px;
+        margin-top: 15%;
+    }
+}
+
+#achievementsContentMain {
+    width: 100vw;
+    margin-top: 5%;
+    margin-bottom: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: auto;
+}
+
+.achievementsBoxExtraMarginMain {
+    min-width: 10%;
+
+    @media only screen and (max-width: 700px) {
+        min-width: 2.5%;
+    }
+}
+
+.achievementBoxCoverMain {
+    min-height: fit-content;
+    height: fit-content;
+    min-width: fit-content;
+    width: fit-content;
+    border-radius: 15px;
+    background-color: rgb(165, 91, 0);
+    margin: 10px;
+    display: flex;
+
+    @media only screen and (max-width: 700px) {
+        border-radius: 10px;
+    }
+}
+
+.achievementBoxContentMain {
+    width: 500px;
+    height: 300px;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(304deg, #1c17ff, #ff00c7, #ff2e00, #ffd600);
+    background-size: 120% 120%;
+
+    -webkit-animation: AnimationAchievementCard 20s ease infinite;
+    -moz-animation: AnimationAchievementCard 20s ease infinite;
+    animation: AnimationAchievementCard 20s ease infinite;
+
+    @media only screen and (max-width: 700px) {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@-webkit-keyframes AnimationAchievementCard {
+    0% {
+        background-position: 0% 23%
+    }
+
+    50% {
+        background-position: 100% 78%
+    }
+
+    100% {
+        background-position: 0% 23%
+    }
+}
+
+@-moz-keyframes AnimationAchievementCard {
+    0% {
+        background-position: 0% 23%
+    }
+
+    50% {
+        background-position: 100% 78%
+    }
+
+    100% {
+        background-position: 0% 23%
+    }
+}
+
+@keyframes AnimationAchievementCard {
+    0% {
+        background-position: 0% 23%
+    }
+
+    50% {
+        background-position: 100% 78%
+    }
+
+    100% {
+        background-position: 0% 23%
+    }
+}
+
+.achievementBoxEventName {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0px;
+    padding-top: 4%;
+    padding-left: 4%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media only screen and (max-width: 700px) {
+        font-size: 20px;
+    }
+}
+
+.achievementBoxEventDate {
+    font-size: 20px;
+    margin: 0px;
+    padding-left: 4%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media only screen and (max-width: 700px) {
+        font-size: 15px;
+    }
+}
+
+.achievementBoxEventRank {
+    font-size: 45px;
+    font-weight: 700;
+    padding-bottom: 4%;
+    padding-left: 4%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+    margin-top: auto;
+
+    @media only screen and (max-width: 700px) {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,35 @@
+.background-pink-blue {
+    background: linear-gradient(269deg, #ffccf4, #a9d6ff);
+    padding-bottom: 100px;
+    min-height: 70vh;
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationBackgroundLight 18s ease infinite;
+    -moz-animation: AnimationBackgroundLight 18s ease infinite;
+    animation: AnimationBackgroundLight 18s ease infinite;
+}
+
+.background-pink-blue-light {
+    background: linear-gradient(269deg, #ffeffc, #e5f2fd);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationBackgroundLight 18s ease infinite;
+    -moz-animation: AnimationBackgroundLight 18s ease infinite;
+    animation: AnimationBackgroundLight 18s ease infinite;
+}
+
+@-webkit-keyframes AnimationBackgroundLight {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@-moz-keyframes AnimationBackgroundLight {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@keyframes AnimationBackgroundLight { 
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}

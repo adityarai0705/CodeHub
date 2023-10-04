@@ -1,0 +1,67 @@
+/* CSS for Contest details. */
+
+.ContestDetailsContainer {
+     border-radius: 7px;
+     background: white;
+     box-shadow: inset 0 0 7px rgba(60, 60, 60, 0.681);
+     margin-top: 70px;
+     margin-bottom: 15px;
+     padding-bottom: 20px;
+}
+
+.contestCardsContainer {
+     display: flex;
+     overflow-x: auto;
+
+     padding-left: 10px;
+     padding-right: 10px;
+}
+
+/* CSS for ContestCard */
+
+.contestCard {
+     background-image: linear-gradient(to top right, #d9d9d9, #f9f9f9);
+     padding: 15px;
+     border-radius: 15px;
+     height: 250px;
+     width: 400px;
+     flex-shrink: 0;
+
+     box-shadow: 0 0 7px rgba(74, 74, 74, 0.764);
+
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+
+     margin: 10px;
+}
+
+.contestCardBottom {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.contestCardBtext {
+     display: flex;
+     flex-direction: column-reverse;
+     align-items: baseline;
+     justify-content: baseline;
+     padding: 0;
+     margin: 0;
+}
+
+@media screen and (max-width: 1180px) {
+     .contestCard {
+          height: 200px;
+          width: 320px;
+     }
+}
+
+@media screen and (max-width: 800px) {
+     .contestCard {
+          height: 150px;
+          width: 240px;
+     }
+}

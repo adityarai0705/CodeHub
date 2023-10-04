@@ -1,0 +1,53 @@
+.navBarContainer{
+    width: 100vw;
+    position: fixed;
+    z-index: 1;
+}
+
+.UserHomeOuterContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.UserHomeInnerContainer{
+    width: 95%;
+}
+
+.TopUserHome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: white;
+    border-radius: 7px;
+    box-shadow: inset 0 0 7px rgba(60, 60, 60, 0.681);
+    margin-top: 70px;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 780px) {
+    .TopUserHome{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.BottomUserHome{
+    display: flex;
+    flex-direction: column;
+}
+
+.background-white-trans{
+    background-color: rgba(255, 255, 255, 0.495);
+    width: auto;
+    height: auto;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 0 0 7px rgba(60, 60, 60, 0.681);
+}

@@ -1,0 +1,38 @@
+.FooterContainer{
+    height: 300px;
+    width: 100%;
+    background-color: rgb(29, 29, 29);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;    
+}
+.footerTitle{
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+.FooterLink{
+    color: white;
+    cursor: pointer;
+    /* text-decoration: none; */
+}
+.LinkContainer{
+    width: 80%;
+}
+.desktopHidden{
+    display: none;
+}
+
+@media screen and (max-width: 420px) {
+    .mobileHidden{
+        display: none;
+    }
+    .footerTitle{
+        flex-direction: column;
+        align-items: center;
+    }
+    .desktopHidden{
+        display:block;
+    }
+}

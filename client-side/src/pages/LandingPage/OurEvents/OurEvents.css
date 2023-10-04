@@ -1,0 +1,126 @@
+#ourEventsMain {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    background: linear-gradient(269deg, #070021, #450d7e);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationBackgroundDark 29s ease infinite;
+    -moz-animation: AnimationBackgroundDark 29s ease infinite;
+    animation: AnimationBackgroundDark 29s ease infinite;
+
+}
+
+@-webkit-keyframes AnimationBackgroundDark {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@-moz-keyframes AnimationBackgroundDark {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@keyframes AnimationBackgroundDark { 
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+
+#ourEventsTitle {
+    text-align: center;
+    color: rgb(210, 13, 89);
+    width: 80%;
+    font-size: 50px;
+    margin-top: 8%;
+    margin-bottom: 4%;
+
+    @media only screen and (max-width: 700px) {
+        width: 95%;
+        font-size: 30px;
+    }
+}
+
+.eventBoxContentMain {
+    background-color: #56109D;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    @media only screen and (max-width: 700px) {
+        width: 95%;
+    }
+}
+
+.eventBoxEventName {
+    font-size: 40px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media only screen and (max-width: 700px) {
+        font-size: 25px;
+        margin: 8px;
+        padding: 8px;
+    }
+}
+
+.eventBoxEventSummary {
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    text-align: justify;
+    @media only screen and (max-width: 700px) {
+        font-size: 15px;
+        margin-top: 0px;
+    }
+}
+
+
+.eventBoxRegistrationOpen {
+    font-size: 20px;
+    background-color: #D8B1FF;
+    color: #56109D;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: auto;
+    transition: 0.2s ease-in-out;
+    @media only screen and (max-width: 700px) {
+        font-size: 15px;
+        width: 150px;
+    }
+}
+
+.eventBoxRegistrationOpen:hover {
+    cursor: pointer;
+    background-color: rgb(128, 0, 187);
+    color: rgb(219, 166, 250);
+}
+
+.eventBoxRegistrationClosed {
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    margin-left: auto;
+    color: #D8B1FF;
+    cursor: default;
+    @media only screen and (max-width: 700px) {
+        font-size: 15px;
+        width: 150px;
+    }
+}
