@@ -2,7 +2,7 @@ const EducationCategories = require("../model/educationCategoryModel");
 const Feedback = require("../model/feedbackModel");
 const Notices = require("../model/noticeModel");
 const Videos = require("../model/videoModel");
-const Admins = require("../model/adminModel");
+//const Admins = require("../model/adminModel");
 const AdminSessions = require("../model/adminSessionModel");
 
 module.exports.adminLogin = async (req, res, next) => {

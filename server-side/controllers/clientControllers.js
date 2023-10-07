@@ -3,8 +3,9 @@ const Feedback = require("../model/feedbackModel");
 const Notices = require("../model/noticeModel");
 const Users = require("../model/userModel");
 const Videos = require("../model/videoModel");
-const ClientSessions = require("../model/ClientSessionsModel");
+const ClientSessions = require("../model/clientSessionModel");
 const { randomUUID } = require("crypto");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 module.exports.educationCategories = async (req, res, next) => {
@@ -87,6 +88,21 @@ module.exports.leaderboard = async (req, res, next) => {
         next(ex);
     }
 
+};
+
+module.exports.register = async (req, res, next) => {
+    try {
+        const { cfID, password } = req.body;
+        const cfIDCheck = await Users.findOne({ cfID: cfID });
+        if (cfIDCheck) return res.json({ status: false, msg: "User already exist" });
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = await Users.create({ cfID: cfID, password: hashedPassword });
+        delete user.password;
+        return res.json({ status: true, user });
+    }
+    catch (ex) {
+        next(ex);
+    }
 };
 
 module.exports.login = async (req, res, next) => {

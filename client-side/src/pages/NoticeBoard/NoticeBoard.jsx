@@ -44,8 +44,9 @@ export default function NoticeBoard() {
   const updatePageHtml = async () => {
 
     try {
-      const NoticeboardAPIresponse = await axios.get('http://localhost:8080' + '/noticeboard');
+      const NoticeboardAPIresponse = await axios.get('http://localhost:8000' + '/noticeboard');
       const noticeList = NoticeboardAPIresponse.data;
+      console.log(noticeList);
 
 
       setPageHtml(<>

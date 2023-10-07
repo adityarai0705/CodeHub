@@ -1,9 +1,10 @@
-const { educationCategories, videos, leaderboard, contactUs, noticeboard, login } = require("../controllers/clientControllers");
+const { educationCategories, videos, leaderboard, contactUs, noticeboard, login, register } = require("../controllers/clientControllers");
 const router = require("express").Router();
 router.post("/education", educationCategories);
 router.post("/education/videos", videos);
 router.get("/leaderboard", leaderboard);
-router.get("/login", login);
+router.post("/login", login);
+router.post("/register", register);
 router.post("/contactus", contactUs);
 router.get("/noticeboard", noticeboard);
 module.exports = router;
