@@ -159,26 +159,37 @@ module.exports.contactUs = async (req, res, next) => {
 
 };
 
+// module.exports.noticeboard = async (req, res, next) => {
+//     try {
+//         let cookieID;
+//         const cookie = req.cookies.jwt;
+//         jwt.verify(
+//             cookie,
+//             process.env.COOKIE_SECRET_KEY,
+//             (err, decoded) => {
+//                 if (err)
+//                     return res.json({ status: false, msg: "Invalid cookieID" });
+//                 cookieID = decoded.cookieID;
+//             }
+//         );
+//         const session = await ClientSessions.findOne({ cfID: cfID });
+//         if (cookieID == session.cookieID) {
+//             const notices = await Notices.find();
+//             return res.json({ status: true, data: notices });
+//         }
+//         else
+//             return res.json({ status: false, msg: "Session expired" });
+//     }
+//     catch (ex) {
+//         next(ex);
+//     }
+
+// };
+
 module.exports.noticeboard = async (req, res, next) => {
     try {
-        let cookieID;
-        const cookie = req.cookies.jwt;
-        jwt.verify(
-            cookie,
-            process.env.COOKIE_SECRET_KEY,
-            (err, decoded) => {
-                if (err)
-                    return res.json({ status: false, msg: "Invalid cookieID" });
-                cookieID = decoded.cookieID;
-            }
-        );
-        const session = await ClientSessions.findOne({ cfID: cfID });
-        if (cookieID == session.cookieID) {
-            const notices = await Notices.find();
-            return res.json({ status: true, data: notices });
-        }
-        else
-            return res.json({ status: false, msg: "Session expired" });
+        const notices = await Notices.find();
+        return res.json({ status: true, data: notices });
     }
     catch (ex) {
         next(ex);
