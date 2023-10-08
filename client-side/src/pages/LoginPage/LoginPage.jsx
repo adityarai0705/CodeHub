@@ -1,7 +1,6 @@
 
 import React, {useState,useContext} from 'react'
 
-import React, {useState} from 'react'
 import axios from "axios";
 
 import "./LoginPage.css"
@@ -13,7 +12,6 @@ export default function LoginPage() {
     const navigate = useNavigate()
 
 
-    const [values, setValues] = useState({ username: "", password: "" });
     
     //USER-LOGIN INFO
     const {login,setLogin} = useContext(loginContext)
@@ -26,8 +24,7 @@ export default function LoginPage() {
             try {
 
                 console.log(values);
-                setLogin(true)
-                navigate('/user-home')
+                
 
 
                     const { password, cfID } = values;
@@ -37,6 +34,8 @@ export default function LoginPage() {
                         console.log(data);
                         localStorage.setItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY, JSON.stringify(data.data));
                         console.log("success");
+                        setLogin(true)
+                        navigate('/user-home')
                     }
 
             } catch (error) {
