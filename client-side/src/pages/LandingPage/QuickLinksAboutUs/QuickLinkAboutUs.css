@@ -35,6 +35,12 @@
 .quickLinksBoxContents:hover{
     background-color: rgb(13, 109, 193);
     color: white;
+    cursor: pointer;
+   box-shadow: 0 8px 18px rgba(255, 255, 255, 0.5), 0 0 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    z-index: 2;
+    transition: all 0.4s ease-in-out;
+
 }
 #aboutUsMain {
     background-color: rgb(3, 3, 36);
