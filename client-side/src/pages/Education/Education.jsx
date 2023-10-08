@@ -31,10 +31,12 @@ export default function Education() {
     const updatePageHtml = async () => {
 
         try {
-            const EducationAPIresponse = await axios.get('http://localhost:8080' + '/education');
-            const EducationInfo = EducationAPIresponse.data;
+            console.log("user");
+            const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
+            const EducationAPIresponse = await axios.post('http://localhost:8000' + '/education', { cfID: user.cfID }, { withCredentials: true });
+            const EducationInfo = EducationAPIresponse.data.data;
 
-            const EducationComponent = EducationInfo.map( ( category, index) => <EduSection key={index} title={category.title} _id={category._id} />)
+            const EducationComponent = EducationInfo.map((category, index) => <EduSection key={index} title={category.title} _id={category._id} />)
 
             setPageHtml(<>
                 <div className="background-pink-blue">

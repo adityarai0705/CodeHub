@@ -11,7 +11,7 @@ const VideoListsData = [
     {
         title: `Video Editorial for CodeTogether's Quarters 31`,
         date: '24th June 2022',
-        ytLink: 'https://www.youtube.com/embed/T2WHvJdx0fs',
+        ytLink: 'd',
         _id: 'dummy232234'
     },
     {

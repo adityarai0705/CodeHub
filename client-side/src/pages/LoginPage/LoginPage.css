@@ -41,7 +41,7 @@
     border: 1px solid #000000;
 }
 
-#loginFormUsername {
+#loginFormcfID {
     width: 80%;
     height: 48px;
     background-color: #CEBFFF;
@@ -52,10 +52,10 @@
     padding-left: 10px;
 }
 
-#loginFormUsername::placeholder {
+#loginFormcfID::placeholder {
     color: black;
 }
-#loginFormUsername:focus {
+#loginFormcfID:focus {
     color: black;
     outline: #000000;
 }
