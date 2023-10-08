@@ -109,8 +109,4 @@
     color:rgb(11, 67, 122);
     background-color: rgb(77, 207, 254);
     cursor: pointer;
-   box-shadow: 0 8px 18px rgba(255, 255, 255, 0.5), 0 0 32px rgba(0, 0, 0, 0.3);
-    transform: translateY(-10px);
-    z-index: 2;
-    transition: all 0.4s ease-in-out;
 }
