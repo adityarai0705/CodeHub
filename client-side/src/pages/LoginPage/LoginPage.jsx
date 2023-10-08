@@ -1,15 +1,35 @@
+
+import React, {useState,useContext} from 'react'
+
 import React, {useState} from 'react'
 import axios from "axios";
+
 import "./LoginPage.css"
 import image from "./Assets/Logos/CodeTogetherText.png"
+import { useNavigate } from 'react-router-dom';
+import { loginContext } from '../../loginContext';
 
 export default function LoginPage() {
+    const navigate = useNavigate()
+
+
+    const [values, setValues] = useState({ username: "", password: "" });
+    
+    //USER-LOGIN INFO
+    const {login,setLogin} = useContext(loginContext)
 
     const [values, setValues] = useState({ cfID: "", password: "" });
+
 
     const handleSubmit = async (event) => {
         if (handleValidation()) {
             try {
+
+                console.log(values);
+                setLogin(true)
+                navigate('/user-home')
+
+
                     const { password, cfID } = values;
                     const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
                     if (data.status === false) console.log(data.msg)
@@ -18,6 +38,7 @@ export default function LoginPage() {
                         localStorage.setItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY, JSON.stringify(data.data));
                         console.log("success");
                     }
+
             } catch (error) {
                 console.log(error);
             }

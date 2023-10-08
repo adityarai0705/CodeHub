@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./NavBar.css";
 import CodeTogetherSingleLine from "./Assets/Logos/CodeTogetherSingleline.png";
 import CodeTogetherLogo from "./Assets/Logos/CodeTogetherLogo.png";
@@ -27,8 +27,6 @@ export default function NavBar() {
         const section = document.querySelector(`#${target}`);
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
-
-
 
     return (
         <>
@@ -60,7 +58,7 @@ export default function NavBar() {
                     <button onClick={() => navigate("/notice-board")} className='navBar121Main'>
                         Notice Board
                     </button>
-                    <button onClick={() => navigate("/demoLink")} id='navBar122Main'>
+                    <button onClick={() => navigate("/login")} id='navBar122Main'>
                         Login
                     </button>
                 </div>
