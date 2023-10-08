@@ -31,7 +31,7 @@ export default function Education() {
     const updatePageHtml = async () => {
 
         try {
-            const EducationAPIresponse = await axios.get('http://localhost:8080' + '/education');
+            const EducationAPIresponse = await axios.get('http://localhost:8000' + '/education', {withCredentials: true});
             const EducationInfo = EducationAPIresponse.data;
 
             const EducationComponent = EducationInfo.map( ( category, index) => <EduSection key={index} title={category.title} _id={category._id} />)

@@ -12,6 +12,7 @@ module.exports.educationCategories = async (req, res, next) => {
     try {
         let cookieID;
         const cookie = req.cookies.jwt;
+        console.log(req.cookies);
         jwt.verify(
             cookie,
             process.env.COOKIE_SECRET_KEY,
@@ -114,8 +115,9 @@ module.exports.login = async (req, res, next) => {
         if (!isPasswordValid) return res.json({ status: false, msg: "Incorrect Username or Password" });
         const cookieID = randomUUID();
         const session = await ClientSessions.findOne({ cfID: cfID });
-        if (session)
-            await ClientSessions.remove({ cfID: cfID });
+        console.log(session);
+        if (session)    
+            await ClientSessions.deleteOne({ cfID: cfID });
         await ClientSessions.create({ cfID: cfID, cookieID: cookieID });
         const cookie = jwt.sign(
             { "cookieID": cookieID },

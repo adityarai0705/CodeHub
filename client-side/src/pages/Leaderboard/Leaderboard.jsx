@@ -39,7 +39,7 @@ export default function Leaderboard() {
     const updatePageHtml = async () => {
 
         try {
-            const LeaderboardAPIresponse = await axios.get('http://localhost:8080' + '/leaderboard');
+            const LeaderboardAPIresponse = await axios.get('http://localhost:8000' + '/leaderboard');
             const userBoardInfo = LeaderboardAPIresponse.data;
 
             const noticeComponent = userBoardInfo.map((userInfo, index) => <LeaderUser key={index} name={userInfo.name} rank={index + 1} regNo={userInfo.regNo} cfID={userInfo.cfID} _id={userInfo._id} />);
