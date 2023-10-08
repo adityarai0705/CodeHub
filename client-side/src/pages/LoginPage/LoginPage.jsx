@@ -1,15 +1,24 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import "./LoginPage.css"
 import image from "./Assets/Logos/CodeTogetherText.png"
+import { useNavigate } from 'react-router-dom';
+import { loginContext } from '../../loginContext';
 
 export default function LoginPage() {
+    const navigate = useNavigate()
 
     const [values, setValues] = useState({ username: "", password: "" });
+    
+    //USER-LOGIN INFO
+    const {login,setLogin} = useContext(loginContext)
 
     const handleSubmit = async (event) => {
         if (handleValidation()) {
             try {
                 console.log(values);
+                setLogin(true)
+                navigate('/user-home')
+
             } catch (error) {
                 console.log(error);
             }
