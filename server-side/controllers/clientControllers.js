@@ -12,12 +12,12 @@ module.exports.educationCategories = async (req, res, next) => {
     try {
         let cookieID;
         const cookie = req.cookies.jwt;
-        console.log(req.cookies);
+        const cfID = req.body.cfID;
         jwt.verify(
             cookie,
             process.env.COOKIE_SECRET_KEY,
             (err, decoded) => {
-                if (err)
+                if (err)    
                     return res.json({ status: false, msg: "Invalid cookieID" });
                 cookieID = decoded.cookieID;
             }
@@ -40,6 +40,7 @@ module.exports.videos = async (req, res, next) => {
     try {
         let cookieID;
         const cookie = req.cookies.jwt;
+        const cfID = req.body.cfID;
         jwt.verify(
             cookie,
             process.env.COOKIE_SECRET_KEY,
@@ -68,6 +69,7 @@ module.exports.leaderboard = async (req, res, next) => {
     try {
         let cookieID;
         const cookie = req.cookies.jwt;
+        const cfID = req.body.cfID;
         jwt.verify(
             cookie,
             process.env.COOKIE_SECRET_KEY,
@@ -116,7 +118,7 @@ module.exports.login = async (req, res, next) => {
         const cookieID = randomUUID();
         const session = await ClientSessions.findOne({ cfID: cfID });
         console.log(session);
-        if (session)    
+        if (session)
             await ClientSessions.deleteOne({ cfID: cfID });
         await ClientSessions.create({ cfID: cfID, cookieID: cookieID });
         const cookie = jwt.sign(
@@ -137,6 +139,7 @@ module.exports.contactUs = async (req, res, next) => {
     try {
         let cookieID;
         const cookie = req.cookies.jwt;
+        const cfID = req.body.cfID;
         jwt.verify(
             cookie,
             process.env.COOKIE_SECRET_KEY,

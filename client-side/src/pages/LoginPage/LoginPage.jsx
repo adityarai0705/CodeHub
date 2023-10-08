@@ -14,7 +14,8 @@ export default function LoginPage() {
                     const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
                     if (data.status === false) console.log(data.msg)
                     else if (data.status === true) {
-                        localStorage.setItem(process.env.PULSE_APP_LOCALHOST_KEY, JSON.stringify(data.user));
+                        console.log(data);
+                        localStorage.setItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY, JSON.stringify(data.data));
                         console.log("success");
                     }
             } catch (error) {

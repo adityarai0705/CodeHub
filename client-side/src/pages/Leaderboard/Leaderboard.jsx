@@ -14,7 +14,7 @@ function LeaderUser(props) {
             <div className="leader-box">
                 <div className=''>
                     <span style={{ marginRight: '5px' }}>
-                        
+
                         <b>#{props.rank}</b>
                     </span>
                     <span>
@@ -39,7 +39,8 @@ export default function Leaderboard() {
     const updatePageHtml = async () => {
 
         try {
-            const LeaderboardAPIresponse = await axios.get('http://localhost:8000' + '/leaderboard');
+            const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
+            const LeaderboardAPIresponse = await axios.post('http://localhost:8000' + '/leaderboard', { cfID: user.cfID }, { withCredentials: true });
             const userBoardInfo = LeaderboardAPIresponse.data;
 
             const noticeComponent = userBoardInfo.map((userInfo, index) => <LeaderUser key={index} name={userInfo.name} rank={index + 1} regNo={userInfo.regNo} cfID={userInfo.cfID} _id={userInfo._id} />);

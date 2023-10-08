@@ -3,11 +3,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const clientRoutes = require("./routes/clientRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const app = express();
 require("dotenv").config();
 
 //app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
+app.use(session({
+  secret: "secret",
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Credentials', true);
