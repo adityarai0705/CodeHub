@@ -1,5 +1,5 @@
 .FooterContainer{
-    height: 300px;
+    height: 100%;
     width: 100%;
     background-color: rgb(29, 29, 29);
     display: flex;
@@ -15,8 +15,11 @@
 .FooterLink{
     color: white;
     cursor: pointer;
-    /* text-decoration: none; */
+    text-decoration: none;
 }
+.FooterLink:hover{
+    color: rgb(228, 143, 97);
+}   
 .LinkContainer{
     width: 80%;
 }
