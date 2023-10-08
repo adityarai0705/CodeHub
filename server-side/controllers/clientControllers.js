@@ -41,6 +41,7 @@ module.exports.videos = async (req, res, next) => {
         let cookieID;
         const cookie = req.cookies.jwt;
         const cfID = req.body.cfID;
+        const educationCategory = req.body.educationCategory;
         jwt.verify(
             cookie,
             process.env.COOKIE_SECRET_KEY,
@@ -53,7 +54,7 @@ module.exports.videos = async (req, res, next) => {
         const session = await ClientSessions.findOne({ cfID: cfID });
         if (cookieID == session.cookieID) {
             const { categoryID } = req.body;
-            const videos = await Videos.find({ categoryID: categoryID });
+            const videos = await Videos.find({ educationCategory : educationCategory });
             return res.json({ status: true, data: videos });
         }
         else

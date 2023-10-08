@@ -21,9 +21,9 @@ function LeaderUser(props) {
                         {props.name}
                     </span>
                 </div>
-                <div className='leader-reg'>
+                {/* <div className='leader-reg'>
                     {props.regNo}
-                </div>
+                </div> */}
             </div>
         </div>
     );
@@ -41,9 +41,9 @@ export default function Leaderboard() {
         try {
             const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
             const LeaderboardAPIresponse = await axios.post('http://localhost:8000' + '/leaderboard', { cfID: user.cfID }, { withCredentials: true });
-            const userBoardInfo = LeaderboardAPIresponse.data;
+            const userBoardInfo = LeaderboardAPIresponse.data.data;
 
-            const noticeComponent = userBoardInfo.map((userInfo, index) => <LeaderUser key={index} name={userInfo.name} rank={index + 1} regNo={userInfo.regNo} cfID={userInfo.cfID} _id={userInfo._id} />);
+            const LeaderComponent = userBoardInfo.map((userInfo, index) => <LeaderUser key={index} name={userInfo.cfID} rank={index + 1} _id={userInfo._id} />);
 
             setPageHtml(<>
                 <div>
@@ -54,7 +54,7 @@ export default function Leaderboard() {
                         <NavSpace />
                         <div className='leader-heading'>Leaderboard</div>
                         <div>
-                            {noticeComponent}
+                            {LeaderComponent}
                         </div>
                     </div>
                     <Footer />
