@@ -35,45 +35,51 @@ export default function Leaderboard() {
         <Spinner />
     </>);
     
-  async function SortUsersByRating(userBoardInfo) {
-    const userRatings = [];
+   async function SortUsersByRating(userBoardInfo){
+    //List of all the Codeforces contests
+    const contests = await axios.get('https://codeforces.com/api/contest.list')
+    const contests_data = contests.data.result;
 
-    for (const userInfo of userBoardInfo) {
-      try {
-        const ratingResponse = await axios.get(
-          `https://codeforces.com/api/user.info?handles=${userInfo.cfID}`
-        );
-
-        if (ratingResponse.data.status === "OK") {
-          const user = ratingResponse.data.result[0];
-          userRatings.push({ handle: userInfo.cfID, rating: user.rating });
-        } else {
-          userRatings.push({ handle: userInfo.cfID, rating: "N/A" });
+    var latestContestId;
+    for(const contest of contests_data){
+        if(contest.phase === "FINISHED"){
+            latestContestId = contest.id;
+            break;
         }
-
-        // Introduce a delay (Codeforces  rate limit (1 request per 2 seconds) )
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-      } catch (error) {
-        console.error("Error fetching user ratings:", error);
-        userRatings.push({ handle: userInfo.cfID, rating: "N/A" });
-      }
     }
 
-    // Sort the users by rating in decreasing order
+    //Users who have given latest contest
+    const users = await axios.get(`https://codeforces.com/api/contest.ratingChanges?contestId=${latestContestId}`)
+    const userRatings = [];
+
+
+    for (const userInfo of userBoardInfo) {
+        var user = users.data.result.find((usr)=>usr.handle === userInfo.cfID)
+           if(!user){
+                userRatings.push({handle:userInfo.cfID, rating: "N/A"})
+           }
+           else{
+                userRatings.push({handle:user.handle, rating: user.newRating})
+           }
+    }
+    console.log(userRatings)
+
+   // Sort the users by rating in decreasing order
     userBoardInfo.sort((a, b) => {
-      const aRating = userRatings.find((user) => user.handle === a.cfID).rating;
-      const bRating = userRatings.find((user) => user.handle === b.cfID).rating;
-      if (aRating === "N/A" && bRating === "N/A") {
-        return 0;
-      } else if (aRating === "N/A") {
-        return 1;
-      } else if (bRating === "N/A") {
-        return -1;
-      } else {
-        return bRating - aRating;
-      }
-    });
-  }
+        const aRating = userRatings.find((user) => user.handle === a.cfID).rating;
+        const bRating = userRatings.find((user) => user.handle === b.cfID).rating;
+        if (aRating === "N/A" && bRating === "N/A") {
+          return 0;
+        } else if (aRating === "N/A") {
+          return 1;
+        } else if (bRating === "N/A") {
+          return -1;
+        } else {
+          return bRating - aRating;
+        }
+      });
+}
+
 
     const updatePageHtml = async () => {
 
