@@ -62,7 +62,7 @@ export default function Leaderboard() {
                 userRatings.push({handle:user.handle, rating: user.newRating})
            }
     }
-    console.log(userRatings)
+
 
    // Sort the users by rating in decreasing order
     userBoardInfo.sort((a, b) => {
