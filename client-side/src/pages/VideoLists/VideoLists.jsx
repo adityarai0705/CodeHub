@@ -31,8 +31,12 @@ export default function VideoLists(props) {
 
     const updatePageHtml = async () => {
         try {
-            const VideoAPIresponse = await axios.get('http://localhost:8080' + '/education/videos');
-            const VideoInfo = VideoAPIresponse.data;
+            const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
+            const educationCategory = "demo";
+            const VideoAPIresponse = await axios.post('http://localhost:8000' + '/education/videos', { educationCategory : educationCategory , cfID: user.cfID }, { withCredentials: true });
+            const VideoInfo = VideoAPIresponse.data.data;
+
+            console.log( VideoInfo);
 
             const VideoLists = VideoInfo.map((video, index) =>
                 <VideoTile key={index} title={video.title} date={video.date} ytLink={video.ytLink} _id={video._id} />
