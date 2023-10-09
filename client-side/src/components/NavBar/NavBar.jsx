@@ -3,10 +3,12 @@ import "./NavBar.css";
 import CodeTogetherSingleLine from "./Assets/Logos/CodeTogetherSingleline.png";
 import CodeTogetherLogo from "./Assets/Logos/CodeTogetherLogo.png";
 import { useNavigate } from 'react-router-dom';
+import { loginContext } from '../../loginContext';
 
 export default function NavBar() {
 
     const navigate = useNavigate();
+    const {login} = useContext(loginContext);
 
     //FUNCTION FOR MENU
     const onClickMenu = () => {
@@ -59,7 +61,7 @@ export default function NavBar() {
                         Notice Board
                     </button>
                     <button onClick={() => navigate("/login")} id='navBar122Main'>
-                        Login
+                    {login ? "Logout" : "Login"} 
                     </button>
                 </div>
             </div>
@@ -69,7 +71,7 @@ export default function NavBar() {
             <div id='navBar2Main'>
                 <div>
                     <button onClick={() => navigate("/")} id='navBar21Main'>
-                        Login
+                    {login ? "Logout" : "Login"} 
                     </button>
                 </div>
                 <div id='navBar22Main'>

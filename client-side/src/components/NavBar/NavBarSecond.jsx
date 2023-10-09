@@ -58,7 +58,7 @@ export default function NavBarSecond() {
                         Notice Board
                     </button>
                     <button onClick={() => navigate("/login")} id='navBar122Main'>
-                        Login
+                       {login ? "Logout" : "Login"} 
                     </button>
                 </div>
             </div>
@@ -68,7 +68,7 @@ export default function NavBarSecond() {
             <div id='navBar2Main'>
                 <div>
                     <button onClick={() => navigate("/login")} id='navBar21Main'>
-                        Log in
+                    {login ? "Logout" : "Login"} 
                     </button>
                 </div>
                 <div id='navBar22Main'>
