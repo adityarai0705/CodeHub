@@ -10,7 +10,8 @@ import { loginContext } from '../../loginContext';
 
 export default function LoginPage() {
     const navigate = useNavigate()
-
+    const [Message, setMessage] = useState();
+    const [LogIn, setLogIn] = useState( "Log In");
 
     
     //USER-LOGIN INFO
@@ -20,16 +21,17 @@ export default function LoginPage() {
 
 
     const handleSubmit = async (event) => {
+        setLogIn( "Loggin In");
         if (handleValidation()) {
             try {
 
-                console.log(values);
-                
-
-
+                    console.log(values);
                     const { password, cfID } = values;
                     const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
-                    if (data.status === false) console.log(data.msg)
+                    if (data.status === false) {
+                        console.log(data.msg);
+                        setMessage( data.msg);
+                    }
                     else if (data.status === true) {
                         console.log(data);
                         localStorage.setItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY, JSON.stringify(data.data));
@@ -39,14 +41,14 @@ export default function LoginPage() {
                     }
 
             } catch (error) {
-                console.log(error);
+                setMessage("Error : ", error);
             }
         }
     };
 
     const handleValidation = () => {
         const { password, cfID } = values;
-        if (password === "" || cfID === "") { console.log("cfID and password required"); return false; }
+        if (password === "" || cfID === "") { setMessage("cfID and password required"); return false; }
         return true;
     };
 
@@ -58,9 +60,10 @@ export default function LoginPage() {
                 <div id="loginPageMain2">
                     <img id='loginMainPageTitle' src={image} alt="" />
                     <div id='loginForm'>
+                        <div style={{color:'darkred'}}>{Message}</div>
                         <input id="loginFormcfID" type="text" placeholder="CodeForces ID" name="cfID" onChange={(e) => handleChange(e)} min="3" autoComplete="off" />
                         <input id="loginFormPassword" type="password" placeholder="Password" name="password" onChange={(e) => handleChange(e)} autoComplete="off" />
-                        <button id="loginFormButton" onClick={() => handleSubmit()}>Log In</button>
+                        <button id="loginFormButton" onClick={() => handleSubmit()}>{LogIn}</button>
                     </div>
                 </div>
             </div>
