@@ -6,7 +6,7 @@ import { loginContext } from '../../loginContext';
 import "./LoginPage.css"
 import image from "./Assets/Logos/CodeTogetherText.png"
 import { useNavigate, useParams } from 'react-router-dom';
-import { loginContext } from '../../loginContext';
+
 
 
 export default function LoginPage() {
