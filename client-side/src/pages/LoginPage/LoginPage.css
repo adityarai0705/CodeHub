@@ -23,7 +23,10 @@
     top: 0px;
     right: 0px;
     width: 40%;
+    cursor: pointer;
 }
+
+
 
 #loginForm {
     width: 35%;

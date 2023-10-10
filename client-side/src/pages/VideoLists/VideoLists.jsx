@@ -6,6 +6,7 @@ import axios from 'axios';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
 import Alert from '../../components/Alert/Alert';
 import Footer from '../../components/Footer/Footer';
+import { useLocation } from 'react-router-dom';
 
 
 function VideoTile(props) {
@@ -23,20 +24,21 @@ function VideoTile(props) {
 }
 
 export default function VideoLists(props) {
+    const location = useLocation();
+
     const [PageHtml, setPageHtml] = useState(<>
         <NavSpace />
         <Spinner />
     </>);
-
+    
 
     const updatePageHtml = async () => {
         try {
+            const searchParams = new URLSearchParams(location.search);
+            const educationCategory = searchParams.get('category');
             const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
-            const educationCategory = "demo";
             const VideoAPIresponse = await axios.post('http://localhost:8000' + '/education/videos', { educationCategory : educationCategory , cfID: user.cfID }, { withCredentials: true });
             const VideoInfo = VideoAPIresponse.data.data;
-
-            console.log( VideoInfo);
 
             const VideoLists = VideoInfo.map((video, index) =>
                 <VideoTile key={index} title={video.title} date={video.date} ytLink={video.ytLink} _id={video._id} />
@@ -48,7 +50,7 @@ export default function VideoLists(props) {
                             <NavBarSecond />
                         </div>
                         <NavSpace />
-                        <div className='videoList-heading'><small>Education</small>/{props.heading}</div>
+                        <div className='videoList-heading'><small>Education</small>/{educationCategory}</div>
                         <div className='videoContainer'>
                             {VideoLists}
                         </div>
