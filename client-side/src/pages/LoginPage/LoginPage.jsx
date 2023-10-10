@@ -9,7 +9,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { loginContext } from '../../loginContext';
 
 export default function LoginPage() {
-
     const navigate = useNavigate()
     const [Message, setMessage] = useState();
     const [LogIn, setLogIn] = useState( "Log In");
@@ -26,9 +25,7 @@ export default function LoginPage() {
         setLogIn( "Loggin In");
         if (handleValidation()) {
             try {
-
-                console.log(values);
-
+                    console.log(values);
                     const { password, cfID } = values;
                     const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
                     if (data.status === false) {
