@@ -50,7 +50,7 @@ export default function VideoLists(props) {
                             <NavBarSecond />
                         </div>
                         <NavSpace />
-                        <div className='videoList-heading'><small>Education</small>/{props.heading}</div>
+                        <div className='videoList-heading'><small>Education</small>/{educationCategory}</div>
                         <div className='videoContainer'>
                             {VideoLists}
                         </div>

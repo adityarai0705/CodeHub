@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import "./NavBar.css";
 import CodeTogetherSingleLine from "./Assets/Logos/CodeTogetherSingleline.png";
 import CodeTogetherLogo from "./Assets/Logos/CodeTogetherLogo.png";
 import { useNavigate } from 'react-router-dom';
+import { loginContext } from '../../loginContext';
+
 
 export default function NavBarSecond() {
 
     const navigate = useNavigate();
+
+      //USER-LOGIN INFO
+      const {login} = useContext(loginContext);
+      console.log(login)  
 
     //FUNCTION FOR MENU
     const onClickMenu = () => {
@@ -39,7 +45,7 @@ export default function NavBarSecond() {
                     <img onClick={() => navigate("/")} src={CodeTogetherSingleLine} alt="Code Together" />
                 </div>
                 <div id='navBar12Main'>
-                    <button onClick={() => navigate("/user-home")} className='navBar121Main'>
+                   {login && <><button onClick={() => navigate("/user-home")} className='navBar121Main'>
                         Profile
                     </button>
                     <button onClick={() => navigate("/leader-board")} className='navBar121Main'>
@@ -47,12 +53,12 @@ export default function NavBarSecond() {
                     </button>
                     <button onClick={() => navigate("/education")} className='navBar121Main'>
                         Education
-                    </button>
+                    </button></>}
                     <button onClick={() => navigate("/notice-board")} className='navBar121Main'>
                         Notice Board
                     </button>
-                    <button onClick={() => navigate("/demoLink")} id='navBar122Main'>
-                        Log out
+                    <button onClick={() => navigate("/login")} id='navBar122Main'>
+                       {login ? "Logout" : "Login"} 
                     </button>
                 </div>
             </div>
@@ -61,15 +67,15 @@ export default function NavBarSecond() {
             {/* -----------------HTML FOR MOBILE/TABLET EXPERIENCE--------------- */}
             <div id='navBar2Main'>
                 <div>
-                    <button onClick={() => navigate("/")} id='navBar21Main'>
-                        Log out
+                    <button onClick={() => navigate("/login")} id='navBar21Main'>
+                    {login ? "Logout" : "Login"} 
                     </button>
                 </div>
                 <div id='navBar22Main'>
                     <img id='navBarLogo1Main' src={CodeTogetherSingleLine} alt="Code Together" />
                     <img id='navBarLogo2Main' src={CodeTogetherLogo} alt="Code Together" />
                 </div>
-                <div id="navigation">
+                {login && <div id="navigation">
                     <button id='navBar23Main' onClick={() => onClickMenu()}>
                         Explore
                     </button>
@@ -86,7 +92,7 @@ export default function NavBarSecond() {
                         <li onClick={() => navigate("/demoLink")}>Education</li>
                         <li onClick={() => navigate("/demoLink")}>Notice Board</li> */}
                     </ul>
-                </div>
+                </div>}
             </div >
             {/* ---------------------END---------------------- */}
         </>
