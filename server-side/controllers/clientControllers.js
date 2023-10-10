@@ -63,7 +63,6 @@ module.exports.videos = async (req, res, next) => {
     catch (ex) {
         next(ex);
     }
-
 };
 
 module.exports.leaderboard = async (req, res, next) => {
