@@ -11,7 +11,7 @@ export default function NavBarSecond() {
     const navigate = useNavigate();
 
       //USER-LOGIN INFO
-      const {login} = useContext(loginContext);
+      const {login,userCfID} = useContext(loginContext);
       console.log(login)  
 
     //FUNCTION FOR MENU
@@ -45,7 +45,7 @@ export default function NavBarSecond() {
                     <img onClick={() => navigate("/")} src={CodeTogetherSingleLine} alt="Code Together" />
                 </div>
                 <div id='navBar12Main'>
-                   {login && <><button onClick={() => navigate("/user-home")} className='navBar121Main'>
+                   {login && <><button onClick={() =>{navigate(`/user-home/${userCfID}`)}} className='navBar121Main'>
                         Profile
                     </button>
                     <button onClick={() => navigate("/leader-board")} className='navBar121Main'>
@@ -83,7 +83,7 @@ export default function NavBarSecond() {
                         <div id='navCloseMain'>
                             <div id='navCloseMain' className='gg-close'></div>
                         </div>
-                        <li className='text-dg' onClick={() => navigate("/user-home")}>Profile</li>
+                        <li className='text-dg' onClick={() => navigate(`/user-home/${userCfID}`)}>Profile</li>
                         <li className='text-dg' onClick={() => navigate("/leader-board")} >Leader Board</li>
                         <li className='text-dg' onClick={() => navigate("/education")}>Education</li>
                         <li className='text-dg' onClick={() => navigate("/notice-board")}>Notice Board</li>

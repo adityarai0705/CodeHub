@@ -17,9 +17,10 @@ import Spinner from '../../components/Spinner/Spinner';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
 import Alert from '../../components/Alert/Alert';
 import Footer from '../../components/Footer/Footer';
+import { useParams } from 'react-router-dom';
 
 
-export default function UserHome(props) {
+export default function UserHome() {
 
     // Declared Data members
 
@@ -28,7 +29,11 @@ export default function UserHome(props) {
         <Spinner />
     </>);
 
-    const cfID = props.cfID;
+    const params = useParams()
+
+    const cfID = params.id;
+    console.log(cfID)
+
     let userData = { status: "", data: {} };
     let userRating = { status: "", data: {} };
     let userSubmissions = { status: "", data: {} };
@@ -55,6 +60,7 @@ export default function UserHome(props) {
         // API calls and Initialisation of Data Members
 
         try {
+            console.log(cfID)
             const userDataAPI = await axios.get("https://codeforces.com/api/user.info?handles=" + cfID);
             const userRatingAPI = await axios.get("https://codeforces.com/api/user.rating?handle=" + cfID);
             const userSubmissionsAPI = await axios.get("https://codeforces.com/api/user.status?handle=" + cfID);
@@ -211,7 +217,7 @@ export default function UserHome(props) {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [cfID]);
 
 
     return (

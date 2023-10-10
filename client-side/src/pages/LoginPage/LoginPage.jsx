@@ -2,11 +2,12 @@
 import React, {useState,useContext} from 'react'
 
 import axios from "axios";
-
+import { loginContext } from '../../loginContext';
 import "./LoginPage.css"
 import image from "./Assets/Logos/CodeTogetherText.png"
-import { useNavigate } from 'react-router-dom';
-import { loginContext } from '../../loginContext';
+import { useNavigate, useParams } from 'react-router-dom';
+
+
 
 export default function LoginPage() {
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ export default function LoginPage() {
 
     
     //USER-LOGIN INFO
-    const {login,setLogin} = useContext(loginContext)
+    const {login,setLogin,userCfID,setUserCfID} = useContext(loginContext)
 
     const [values, setValues] = useState({ cfID: "", password: "" });
 
@@ -26,7 +27,9 @@ export default function LoginPage() {
             try {
 
                     console.log(values);
+
                     const { password, cfID } = values;
+                    
                     const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
                     if (data.status === false) {
                         console.log(data.msg);
@@ -37,7 +40,8 @@ export default function LoginPage() {
                         localStorage.setItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY, JSON.stringify(data.data));
                         console.log("success");
                         setLogin(true)
-                        navigate('/user-home')
+                        setUserCfID(cfID)
+                        navigate(`/user-home/${values.cfID}`)
                     }
 
             } catch (error) {
@@ -58,7 +62,7 @@ export default function LoginPage() {
         <>
             <div id="loginPageMain1">
                 <div id="loginPageMain2">
-                    <img id='loginMainPageTitle' src={image} alt="" />
+                    <img id='loginMainPageTitle' src={image} alt="" onClick={()=>navigate("/")}/>
                     <div id='loginForm'>
                         <div style={{color:'darkred'}}>{Message}</div>
                         <input id="loginFormcfID" type="text" placeholder="CodeForces ID" name="cfID" onChange={(e) => handleChange(e)} min="3" autoComplete="off" />

@@ -7,11 +7,19 @@ import Spinner from '../../components/Spinner/Spinner';
 import Alert from '../../components/Alert/Alert';
 import NavBarSecond from '../../components/NavBar/NavBarSecond';
 import Footer from '../../components/Footer/Footer';
+import { Link, useNavigate } from 'react-router-dom';
+import UserHome from '../UserHome/UserHome';
+// import UserHome from '../UserHome/UserHome';
 
 function LeaderUser(props) {
+    const navigate = useNavigate()
+    function handleUserClick(){
+        navigate(`/user-home/${props.name}`)
+    }
+    
     return (
         <div>
-            <div className="leader-box">
+           <div className="leader-box" onClick={()=>handleUserClick()}>
                 <div className=''>
                     <span style={{ marginRight: '5px' }}>
 
@@ -88,6 +96,7 @@ export default function Leaderboard() {
             const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
             const LeaderboardAPIresponse = await axios.post('http://localhost:8000' + '/leaderboard', { cfID: user.cfID }, { withCredentials: true });
             const userBoardInfo = LeaderboardAPIresponse.data.data;
+            console.log(userBoardInfo)
             await SortUsersByRating(userBoardInfo)
             const LeaderComponent = userBoardInfo.map((userInfo, index) => <LeaderUser key={index} name={userInfo.cfID} rank={index + 1} _id={userInfo._id} />);
 

@@ -9,11 +9,16 @@ import Leaderboard from './pages/Leaderboard/Leaderboard';
 import UserHome from './pages/UserHome/UserHome';
 import {useState } from 'react';
 import { loginContext } from './loginContext';
+import { useParams } from 'react-router-dom';
 
 export default function App() {
   const [login, setLogin] = useState(false);
+  //cfID of user currently logged in
+  const [userCfID,setUserCfID] = useState("")
+
+  const params = useParams()
   return (
-    <loginContext.Provider value={{ login, setLogin }}>
+    <loginContext.Provider value={{ login, setLogin,userCfID,setUserCfID }}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -21,7 +26,7 @@ export default function App() {
         <Route path="/education/videos" element={<VideoLists />} />
         <Route path="/education" element={<Education />} />
         <Route path="/notice-board" element={<NoticeBoard />} />
-        <Route path='/user-home' element={<UserHome cfID={"Aditya.Rai"}/>} />
+        <Route path='/user-home/:id' element={<UserHome/>} />
         <Route path="/leader-board" element={<Leaderboard />} />
       </Routes>
     </BrowserRouter >
