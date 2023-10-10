@@ -2,15 +2,17 @@ import React, {useState} from 'react'
 import axios from "axios";
 import "./LoginPage.css"
 import image from "./Assets/Logos/CodeTogetherText.png"
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
-
+    const Navigate= useNavigate()
     const [values, setValues] = useState({ cfID: "", password: "" });
 
     const handleSubmit = async (event) => {
         if (handleValidation()) {
             try {
                     const { password, cfID } = values;
+                    
                     const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
                     if (data.status === false) console.log(data.msg)
                     else if (data.status === true) {
@@ -36,7 +38,7 @@ export default function LoginPage() {
         <>
             <div id="loginPageMain1">
                 <div id="loginPageMain2">
-                    <img id='loginMainPageTitle' src={image} alt="" />
+                    <img id='loginMainPageTitle' src={image} alt="" onClick={()=>Navigate("/")}/>
                     <div id='loginForm'>
                         <input id="loginFormcfID" type="text" placeholder="CodeForces ID" name="cfID" onChange={(e) => handleChange(e)} min="3" autoComplete="off" />
                         <input id="loginFormPassword" type="password" placeholder="Password" name="password" onChange={(e) => handleChange(e)} autoComplete="off" />

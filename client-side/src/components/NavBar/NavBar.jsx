@@ -60,7 +60,7 @@ export default function NavBar() {
                     <button onClick={() => navigate("/notice-board")} className='navBar121Main'>
                         Notice Board
                     </button>
-                    <button onClick={() => navigate("/demoLink")} id='navBar122Main'>
+                    <button onClick={() => navigate("/login")} id='navBar122Main'>
                         Login
                     </button>
                 </div>

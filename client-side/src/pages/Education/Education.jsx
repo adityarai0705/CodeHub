@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../pages.css';
 import './Education.css';
 import Spinner from '../../components/Spinner/Spinner';
@@ -12,7 +13,7 @@ function EduSection(props) {
     const _id = props._id;
     return (
         <div>
-            <div className="super-box">
+            <div className="super-box" onClick={()=>props.redirectToVideos(props.title)}>
                 <div className="edu-box">
                     <div className="edu-title">{props.title}</div>
                 </div>
@@ -21,12 +22,20 @@ function EduSection(props) {
     );
 }
 
+
+
 export default function Education() {
+    
+    const navigate = useNavigate();
 
     const [PageHtml, setPageHtml] = useState(<>
         <NavSpace />
         <Spinner />
     </>);
+
+    const redirectToVideos = (category) => {
+        navigate(`/education/videos?category=${category}`);
+    }
 
     const updatePageHtml = async () => {
 
@@ -35,8 +44,7 @@ export default function Education() {
             const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
             const EducationAPIresponse = await axios.post('http://localhost:8000' + '/education', { cfID: user.cfID }, { withCredentials: true });
             const EducationInfo = EducationAPIresponse.data.data;
-
-            const EducationComponent = EducationInfo.map((category, index) => <EduSection key={index} title={category.title} _id={category._id} />)
+            const EducationComponent = EducationInfo.map((category, index) => <EduSection key={index} title={category.title} _id={category._id} redirectToVideos={redirectToVideos}/>)
 
             setPageHtml(<>
                 <div className="background-pink-blue">
