@@ -16,7 +16,6 @@ export default function LoginPage() {
     
     //USER-LOGIN INFO
     const {login,setLogin,userCfID,setUserCfID} = useContext(loginContext)
-    
 
     const [values, setValues] = useState({ cfID: "", password: "" });
 
