@@ -45,16 +45,9 @@ export default function NoticeBoard() {
 
     try {
       const NoticeboardAPIresponse = await axios.get('http://localhost:8000' + '/noticeboard');
-      // const noticeList = [{
-      //   "_id": {
-      //     "$oid": "652242a76466447c54b608c3"
-      //   },
-      //   "title": "CodeTogether's Quarters 31",
-      //   "body": "We are pleased to annouce that codeTogether is conduction it's 31st Quarters on 21st November 2022 at 8:00 PM IST.\nIt will be conducted on CodeForces on CodeTogether's official group. Join the group in advance so that you won't miss it out. The registraions will begin exactly 6 hours before the contest's start time.\n\nQuarters are ICPC styled 3 hours long competitive programming contests organised by CodeTogether 4 times a year.\n-It is a solo event.\n-It will be comducted in Online mode.\n\nRegards,\nTeam CodeTogether",
-      //   "date": "15 October, 2022",
-      //   "__v": 0
-      // }];
       const noticeList = NoticeboardAPIresponse.data.data;
+
+      // data is loaded.
       console.log(noticeList);
 
 
@@ -83,7 +76,6 @@ export default function NoticeBoard() {
       </>);
     }
     catch (err) {
-      console.log( err);
       setPageHtml(
         <>
           <div id='navBarLandingPageContainer'>

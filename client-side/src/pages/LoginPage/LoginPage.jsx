@@ -45,7 +45,7 @@ export default function LoginPage() {
                     }
 
             } catch (error) {
-                setMessage("Error : ", error);
+                setMessage("Error : ", (error === "" ? "unkown" : error));
             }
         }
     };
