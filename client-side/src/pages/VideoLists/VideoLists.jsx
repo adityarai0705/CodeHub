@@ -37,7 +37,7 @@ export default function VideoLists(props) {
             const searchParams = new URLSearchParams(location.search);
             const educationCategory = searchParams.get('category');
             const user = await JSON.parse(localStorage.getItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY));
-            const VideoAPIresponse = await axios.post('http://localhost:8000' + '/education/videos', { educationCategory : educationCategory , cfID: user.cfID }, { withCredentials: true });
+            const VideoAPIresponse = await axios.post('http://localhost:8000' + '/education/videos', { categoryID : educationCategory , cfID: user.cfID }, { withCredentials: true });
             console.log( educationCategory);
             const VideoInfo = VideoAPIresponse.data.data;
 
