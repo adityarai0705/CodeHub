@@ -1,25 +1,11 @@
-# CodeTogether
+# CodeHub
 
-CodeTogether is the official competitive programming club of Narula Institute of Technology. This repository contains the code used for its official website.
+CodeHub is the official website of Computer Coding Club, MNNIT. This repository contains the code used for its official website.
 
-This is not the actual repository used by the college. Because of security reasons, there is another private repository with the same code but with different private keys and authentication systems.
-
-[Link to college's website](https://www.nit.ac.in/)
-
-CodeTogether's Admin : Devansh Upadhyay 
-[email](mailto:upadhyay12june@gmail.com)
-[linkedIn](https://www.linkedin.com/in/devansh-upadhyay-4428a1228/)
+[Link to college's website](https://mnnit.ac.in/)
 
 
-
-Project Authorised by,
-
-  Dr. Sambhunath Saha 
-  (Dean Student Affairs, Narula Institute of Technology)
-
-
-
-![CodeTogether Logo](/CodeTogether_logo_large.png) 
+![CodeTogether Logo](/codeHub.png) 
 
 ## Overview
 
