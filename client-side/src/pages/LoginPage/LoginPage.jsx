@@ -1,5 +1,5 @@
 
-import React, {useState,useContext} from 'react'
+import React, { useState, useContext } from 'react'
 
 import axios from "axios";
 import { loginContext } from '../../loginContext';
@@ -12,37 +12,37 @@ import { useNavigate, useParams } from 'react-router-dom';
 export default function LoginPage() {
     const navigate = useNavigate()
     const [Message, setMessage] = useState();
-    const [LogIn, setLogIn] = useState( "Log In");
+    const [LogIn, setLogIn] = useState("Log In");
 
-    
+
     //USER-LOGIN INFO
-    const {login,setLogin,userCfID,setUserCfID} = useContext(loginContext)
+    const { login, setLogin, userCfID, setUserCfID } = useContext(loginContext)
 
     const [values, setValues] = useState({ cfID: "", password: "" });
 
 
     const handleSubmit = async (event) => {
-        setLogIn( "Loggin In");
+        setLogIn("Loggin In");
         if (handleValidation()) {
             try {
 
-                    console.log(values);
+                console.log(values);
 
-                    const { password, cfID } = values;
-                    
-                    const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
-                    if (data.status === false) {
-                        console.log(data.msg);
-                        setMessage( data.msg);
-                    }
-                    else if (data.status === true) {
-                        console.log(data);
-                        localStorage.setItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY, JSON.stringify(data.data));
-                        console.log("success");
-                        setLogin(true)
-                        setUserCfID(cfID)
-                        navigate(`/user-home/${values.cfID}`)
-                    }
+                const { password, cfID } = values;
+
+                const { data } = await axios.post("http://localhost:8000/login", { cfID, password }, { withCredentials: true });
+                if (data.status === false) {
+                    console.log(data.msg);
+                    setMessage(data.msg);
+                }
+                else if (data.status === true) {
+                    console.log(data);
+                    localStorage.setItem(process.env.CODETOGETHER_APP_LOCALHOST_KEY, JSON.stringify(data.data));
+                    console.log("success");
+                    setLogin(true)
+                    setUserCfID(cfID)
+                    navigate(`/user-home/${values.cfID}`)
+                }
 
             } catch (error) {
                 setMessage("Error : ", (error === "" ? "unkown" : error));
@@ -71,6 +71,7 @@ export default function LoginPage() {
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
