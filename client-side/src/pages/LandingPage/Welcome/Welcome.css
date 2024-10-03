@@ -43,7 +43,7 @@
 }
 
 #welcomePhotoGreetMain img {
-    height: 135px ;
+    height: 116px ;
     position: relative;
     left: 300px;
     bottom: 90px;
@@ -73,7 +73,7 @@
 
 @media only screen and (min-width: 580px) and (max-width:680px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 77px;
+        height: 65px;
         left: 180px;
         bottom: 60px;
     }
@@ -108,7 +108,7 @@
 
 @media only screen and (min-width: 380px) and (max-width:470px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 75px;
+        height: 55px;
         position: relative;
         top: 0px;
         left: 0px;

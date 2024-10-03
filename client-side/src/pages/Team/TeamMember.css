@@ -1,0 +1,215 @@
+/* General Styling */
+
+/* Team Heading */
+/* Styling for the Teams Title */
+/* General Styling */
+
+/* Background for the Teams Wrapper */
+#teamsMain {
+    background-color: rgb(3, 3, 36);
+    padding-top: 2%; /* Adjust padding for spacing instead of margin */
+    padding-bottom: 2%; /* Optional: Add bottom padding as well */
+}
+
+/* Styling for the Teams Title */
+#teamsTitleMain {
+    text-align: center; /* Center the text */
+    color: rgb(210, 13, 89); /* Text color */
+    width: 100%; /* Width of the heading */
+    font-size: 48px; /* Large font size */
+    margin-top: 67px;
+    margin-bottom: 29px;
+    cursor: default; /* Default cursor style */
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 700px) {
+    #teamsTitleMain {
+        width: 95%; /* Adjust width for smaller screens */
+        font-size: 30px; /* Smaller font size */
+        padding-top: 15%; /* Use padding to increase top space for smaller screens */
+    }
+}
+
+
+/* Styling for the Teams Title */
+
+.team-section {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(269deg, #070021, #450d7e); /* Main gradient background */
+    z-index: 1;
+}
+
+.team-section::before,
+.team-section::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50px; /* Height of the slanted lines */
+    left: 0;
+    z-index: -1;
+}
+
+/* Slant at the top */
+.team-section::before {
+    top: 0;
+    background: linear-gradient(135deg, transparent 50%, #070021 50%);
+}
+
+/* Slant at the bottom */
+.team-section::after {
+    bottom: 0;
+    background: linear-gradient(225deg, transparent 50%, #450d7e 50%);
+}
+
+.team-category {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Team Category Header */
+.team-category h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: left;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    background: linear-gradient(to right, rgb(210, 13, 89), #be3d3d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Team member list */
+.team-category ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    list-style: none;
+}
+
+/* Team member card */
+.team-member {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); /* Gradient for card */
+    border: 1px solid rgba(255, 255, 255, 0.7); /* Transparent white border */
+    border-radius: 12px;
+    padding: 20px;
+    width: 28%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff; /* White text on cards */
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+/* Increased size for member photos */
+.member-photo {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 150px; /* Increased width */
+    height: 150px; /* Increased height */
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.8); /* White border around the photo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow on photo */
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff; /* White text */
+}
+
+.member-role {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .team-member {
+        width: 45%; /* Adjust the card size for medium screens */
+    }
+}
+
+@media (max-width: 968px) {
+    .team-member {
+        width: 40%; /* Adjust the card size for medium screens */
+    }
+}
+@media (max-width: 768px) {
+    .team-member {
+        width: 40%; /* Full width on smaller screens */
+    }
+
+    .team-category h2 {
+        text-align: center; /* Center heading on smaller screens */
+    }
+
+    .member-photo {
+        width: 120px;  /* Adjust size for medium screens */
+        height: 120px;
+    }
+}
+@media (max-width: 590px) {
+    .team-category {
+        padding: 0 10px;
+    }
+
+    .member-photo {
+        width: 90px;  /* Adjust size for smaller screens */
+        height: 90px;
+    }
+
+    .member-info .member-name {
+        font-size: 16px;
+    }
+
+    .member-info .member-role {
+        font-size: 12px;
+    }
+}
+@media (max-width: 480px) {
+    .team-member {
+        width: 100%; /* Full width on smaller screens */
+    }
+    .team-category {
+        padding: 0 10px;
+    }
+
+    .team-category h2{
+        margin-top:45px;
+    }
+    .member-photo {
+        width: 90px;  /* Adjust size for smaller screens */
+        height: 90px;
+    }
+
+    .member-info .member-name {
+        font-size: 16px;
+    }
+
+    .member-info .member-role {
+        font-size: 12px;
+    }
+}

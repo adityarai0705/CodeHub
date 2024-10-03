@@ -10,6 +10,7 @@ import UserHome from './pages/UserHome/UserHome';
 import {useState } from 'react';
 import { loginContext } from './loginContext';
 import { useParams } from 'react-router-dom';
+import TeamMember from './pages/Team/TeamMember';
 
 export default function App() {
   const [login, setLogin] = useState(false);
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/notice-board" element={<NoticeBoard />} />
         <Route path='/user-home/:id' element={<UserHome/>} />
         <Route path="/leader-board" element={<Leaderboard />} />
+        <Route path="/team-member" element={<TeamMember />} />
       </Routes>
     </BrowserRouter >
     </loginContext.Provider>
