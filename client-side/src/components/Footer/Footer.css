@@ -44,7 +44,7 @@
 /* Footer css 2 */
 .FooterContainer {
     height: auto;
-    width: 100%;
+    width: auto;
     background-color: rgb(29, 29, 29);
     display: flex;
     flex-direction: column;

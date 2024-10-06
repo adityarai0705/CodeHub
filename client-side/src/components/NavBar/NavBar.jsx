@@ -70,7 +70,7 @@ export default function NavBar() {
             {/* -----------------HTML FOR MOBILE/TABLET EXPERIENCE--------------- */}
             <div id='navBar2Main'>
                 <div>
-                    <button onClick={() => navigate("/")} id='navBar21Main'>
+                    <button onClick={() => navigate("/login")} id='navBar21Main'>
                     {login ? "Logout" : "Login"} 
                     </button>
                 </div>
