@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Welcome.css"
-import CodeTogetherLarge from "../Assets/Logos/CodeTogetherLarge.png"
+import CodeHubLarge from "../Assets/Logos/CodeHubLarge.png"
 
 
 export default function Welcome() {
@@ -9,7 +9,7 @@ export default function Welcome() {
             <div id='welcomeBoxMain'>
                 <div id='welcomeMessageMain'>code?! Nahhh....<br />Tell me your approach<br />and we'll</div>
                 <div id='welcomePhotoGreetMain'>
-                    <img src={CodeTogetherLarge} alt="Code Together" />
+                    <img src={CodeHubLarge} alt="Code Hub" />
                 </div>
             </div>
         </div>

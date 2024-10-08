@@ -39,20 +39,21 @@
 
 #welcomePhotoGreetMain {
     height: 200px;
-    width: 0px;
+    width: 0px ;
 }
 
 #welcomePhotoGreetMain img {
-    height: 350px;
+    height: 135px ;
     position: relative;
-    left: 280px;
-    bottom: 70px;
+    left: 300px;
+    bottom: 90px;
 }
 
-@media only screen and (min-width: 800px) and (max-width: 950px) and (min-height: 600px) {
+@media only screen and (min-width: 800px) and (max-width: 1040px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 300px;
-        left: 200px;
+        height: 100px;
+        left: 210px;
+        bottom: 70px
     }
     #welcomeMessageMain {
         font-size: 50px;
@@ -61,9 +62,9 @@
 
 @media only screen and (min-width: 680px) and (max-width: 800px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 250px;
+        height: 77px;
         left: 180px;
-        bottom: 40px;
+        bottom: 60px;
     }
     #welcomeMessageMain {
         font-size: 40px;
@@ -72,9 +73,9 @@
 
 @media only screen and (min-width: 580px) and (max-width:680px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 200px;
+        height: 77px;
         left: 180px;
-        bottom: 40px;
+        bottom: 60px;
     }
     #welcomeMessageMain {
         font-size: 40px;
@@ -83,7 +84,7 @@
 
 @media only screen and (min-width: 560px) and (max-width:580px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 300px;
+        height: 77px;
         position: relative;
         top: 0px;
         left: 0px;
@@ -95,7 +96,7 @@
 
 @media only screen and (min-width: 470px) and (max-width:560px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 250px;
+        height: 77px;
         position: relative;
         top: 0px;
         left: 0px;
@@ -107,7 +108,7 @@
 
 @media only screen and (min-width: 380px) and (max-width:470px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 200px;
+        height: 75px;
         position: relative;
         top: 0px;
         left: 0px;
@@ -119,7 +120,7 @@
 
 @media only screen and (min-width: 0px) and (max-width:380px) and (min-height: 600px) {
     #welcomePhotoGreetMain img {
-        height: 150px;
+        height: 48px;
         position: relative;
         top: 0px;
         left: 0px;
@@ -129,25 +130,33 @@
     }
 }
 
-@media only screen and (min-height: 0px) and (max-height:600px) {
+@media only screen and (min-height: 0px) and (max-height: 600px) {
     #welcomeBoxMain {
         width: 100vw;
         display: flex;
-        flex-direction: row;
+        flex-direction: row; /* Row layout for inline arrangement */
         justify-content: center;
         align-items: center;
         padding: 30px;
     }
-    #welcomeMessageMain{
+
+    #welcomeMessageMain {
         width: fit-content;
         font-size: 30px;
+        margin-right: 10px; /* Add some space between text and image */
     }
-    #welcomePhotoGreetMain{
+
+    #welcomePhotoGreetMain {
         width: fit-content;
         position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
     #welcomePhotoGreetMain img {
-        height: 250px;
+        height: 40px;
+        width: auto; /* Maintain aspect ratio */
         position: static;
     }
 }

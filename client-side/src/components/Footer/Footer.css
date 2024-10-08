@@ -1,4 +1,4 @@
-.FooterContainer{
+/*.FooterContainer{
     height: 100%;
     width: 100%;
     background-color: rgb(29, 29, 29);
@@ -39,3 +39,99 @@
         display:block;
     }
 }
+*/
+
+/* Footer css 2 */
+.FooterContainer {
+    height: auto;
+    width: 100%;
+    background-color: rgb(29, 29, 29);
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem;
+    align-items: center;
+    color: white;
+}
+
+.footerTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.FooterLink {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 0.875rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.FooterLink:hover {
+    color: rgb(228, 143, 97);
+    text-decoration: underline;
+}
+
+.LinkContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.footerLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.mnnitLogoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerLogo img {
+    height: 50px;
+    margin: 0 1rem;
+}
+
+.mnnitLabel {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    color: white; /* Text color */
+}
+
+.desktopHidden {
+    display: none;
+}
+
+@media screen and (max-width: 420px) {
+    .mobileHidden {
+        display: none;
+    }
+
+    .footerTitle {
+        font-size: 1.25rem;
+    }
+
+    .footerLogo img {
+        height: 40px;
+    }
+
+    .mnnitLabel {
+        font-size: 0.875rem; /* Smaller text on mobile */
+    }
+}
+.ct_logo {
+    height: 4rem !important;
+}
+
+.nit_logo {
+    height: 4.5rem !important;
+}
+
