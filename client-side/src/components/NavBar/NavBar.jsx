@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import "./NavBar.css";
 import CodeHubSingleLine from "./Assets/Logos/CodeHubLarge.png";
 import CodeHubLogo from "./Assets/Logos/CodeHubSmall.png";
@@ -45,7 +45,7 @@ export default function NavBar() {
                     <button onClick={() => scroll("aboutUsMain")} className='navBar121Main'>
                         About Us
                     </button>
-                    <button onClick={() => scroll("teams3Main")} className='navBar121Main'>
+                    <button onClick={() => scroll("teamsMain")} className='navBar121Main'>
                         Teams
                     </button>
                     <button onClick={() => scroll("motiveMain")} className='navBar121Main'>
@@ -70,7 +70,7 @@ export default function NavBar() {
             {/* -----------------HTML FOR MOBILE/TABLET EXPERIENCE--------------- */}
             <div id='navBar2Main'>
                 <div>
-                    <button onClick={() => navigate("/")} id='navBar21Main'>
+                    <button onClick={() => navigate("/login")} id='navBar21Main'>
                     {login ? "Logout" : "Login"} 
                     </button>
                 </div>
@@ -88,7 +88,7 @@ export default function NavBar() {
                         </div>
                         <li onClick={() => scroll("welcomeMain")}>Home</li>
                         <li onClick={() => scroll("aboutUsMain")} >About Us</li>
-                        <li onClick={() => scroll("teams3Main")}>Teams</li>
+                        <li onClick={() => scroll("teamsMain")}>Teams</li>
                         <li onClick={() => scroll("motiveMain")}>Motive</li>
                         <li onClick={() => scroll("achievementsMain")}>Achievments</li>
                         <li onClick={() => scroll("ourEventsMain")}>Events</li>
