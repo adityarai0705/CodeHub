@@ -1,6 +1,6 @@
 import { cn } from "../../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, forwardRef } from "react";
 
 export const BackgroundBeamsWithCollision = ({
     children,
@@ -89,7 +89,7 @@ export const BackgroundBeamsWithCollision = ({
     );
 };
 
-const CollisionMechanism = React.forwardRef(({ parentRef, containerRef, beamOptions = {} }, ref) => {
+const CollisionMechanism = forwardRef(({ parentRef, containerRef, beamOptions = {} }, ref) => {
     const beamRef = useRef(null);
     const [collision, setCollision] = useState({
         detected: false,

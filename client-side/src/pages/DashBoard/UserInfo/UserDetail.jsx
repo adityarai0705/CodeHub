@@ -19,10 +19,9 @@
 
 
 
-import React from "react";
 import './UserDetail.css';
 
-export default function UserDetail({userDetail}) {
+export default function UserDetail({ userDetail }) {
     const details = [
         { label: "Name", data: userDetail.name },
         { label: "Handle", data: userDetail.handle },

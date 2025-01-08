@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { checkAuth } from "../redux/slices/authSlice";
 import Spinner from "../components/Spinner/Spinner"

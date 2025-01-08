@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as d3 from "d3";
 import axios from "axios";
 
@@ -134,16 +134,16 @@ const Heatmap = ({ handle }) => {
   };
 
   return (
-      <div className="w-full h-auto mt-4 mb-20 rounded-lg p-4">
-        <h4 className="text-3xl md:text-5xl font-bold text-[#05CBDC] text-center mb-6">
-          Heatmap
-        </h4>
-        <div className="flex justify-center">
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          <svg id="heatmap" style={{ width: "100%", height: "auto" }}></svg>
-        </div>
+    <div className="w-full h-auto mt-4 mb-20 rounded-lg p-4">
+      <h4 className="text-3xl md:text-5xl font-bold text-[#05CBDC] text-center mb-6">
+        Heatmap
+      </h4>
+      <div className="flex justify-center">
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <svg id="heatmap" style={{ width: "100%", height: "auto" }}></svg>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Heatmap;

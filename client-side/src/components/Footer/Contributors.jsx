@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function ContributorList({ contributors }) {
   return (
     <div className="contributors grid-contributors">

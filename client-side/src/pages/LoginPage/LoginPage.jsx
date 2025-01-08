@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { cn } from "../../lib/utils";
 import { BackgroundBeamsWithCollision } from "../../components/ui/background_beams_with_collision";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
-import { login } from "../../redux/slices/authSlice"
-import { useDispatch, useSelector } from 'react-redux';
-import toast, { Toaster } from "react-hot-toast"
+import { Link } from "react-router-dom";
+import { login } from "../../redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 export function Login() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const {loading, error } = useSelector((state) => state.auth);
+  const { loading, error } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -32,7 +32,8 @@ export function Login() {
 
     if (!formData.password.trim()) newErrors.password = "Password is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!emailRegex.test(formData.email)) newErrors.email = "Invalid email format";
+    else if (!emailRegex.test(formData.email))
+      newErrors.email = "Invalid email format";
     return newErrors;
   };
 
@@ -46,22 +47,21 @@ export function Login() {
       return;
     }
 
-    // Dispatch Login Action    
+    // Dispatch Login Action
     const resultAction = await dispatch(login(formData));
 
     // Handle Redux State Update
     if (login.fulfilled.match(resultAction)) {
       toast.success("Login successful", {
         duration: 2000,
-        className: "toast-success"
+        className: "toast-success",
       });
       navigate(`/dashBoard`);
     } else {
       toast.error(error || "Error Occured! Please Try Again", {
         duration: 2000,
-        className: "toast-error"
-      }
-      )
+        className: "toast-error",
+      });
     }
   };
 
@@ -73,7 +73,9 @@ export function Login() {
           <h1 className="text-3xl md:text-4xl font-bold text-center text-[#D1D1FF] mb-6">
             Login to your account
           </h1>
-          <p style={{'textAlign': 'center'}}>Use Chrome Desktop(version:120.0 or higher)</p>
+          <p style={{ textAlign: "center" }}>
+            Use Chrome Desktop(version:120.0 or higher)
+          </p>
 
           <form onSubmit={handleSubmit}>
             {/* Email */}
@@ -149,7 +151,10 @@ export function Login() {
           {/* Forgot Password Link */}
           <p className="mt-4 text-center text-[#C5C5FF]">
             Forgot Password?{" "}
-            <Link to="/forgot-password" className="text-blue-400 hover:text-blue-500">
+            <Link
+              to="/forgot-password"
+              className="text-blue-400 hover:text-blue-500"
+            >
               Reset Password
             </Link>
           </p>

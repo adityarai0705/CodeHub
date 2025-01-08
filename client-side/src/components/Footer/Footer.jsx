@@ -1,4 +1,3 @@
-import React from 'react';
 import './Footer.css';
 import NiTLogo from './mnnit_logo.png';
 import CTLogo from './logo_half.png';
@@ -35,40 +34,40 @@ export default function Footer() {
     //     </div>
     // </div>
 
-<footer className="FooterContainer">
-  <div className="footerLogo">
-    <img className= "ct_logo" src={CTLogo} alt="CodeHub Logo" />
-    <img className= "nit_logo" src={NiTLogo} alt="Motilal Nehru National Institute of Technology Logo" />
-    <span className="mnnitLabel">MNNIT</span>
-  </div>
-  <div className="footerTitle">
-    <span>&#169; {year} CodeHub. All Rights Reserved.</span>
-  </div>
-  <div className="LinkContainer">
-    {/* <a href="mailto:computer.club@mnnit.ac.in" className="FooterLink">Contact Us</a> */}
-  </div>
-  <hr className="sectionDivider" />
-    <div className='additionalInfo'>
-      <div className='contributors'>
-      <h3>Do you wish to contribute to CodeHub?</h3>
-      <p className="contributeText">
-        CodeHub is open-sourced for MNNIT students to cultivate a vibrant culture of open-source learning within the college community.
-      </p>
-      <a
-        href="https://github.com/adityarai0705/CodeHub"
-        className="contributeLink"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <button className="contributeButton">Visit CodeHub on GitHub</button>
-      </a>
-    </div>
-    <hr className="sectionDivider " />
-    <p className='mt-10'><b>Contributors</b></p>
-      <Contributors contributors={contributors}/>
-    <br/>
-  </div>
-</footer>
+    <footer className="FooterContainer">
+      <div className="footerLogo">
+        <img className="ct_logo" src={CTLogo} alt="CodeHub Logo" />
+        <img className="nit_logo" src={NiTLogo} alt="Motilal Nehru National Institute of Technology Logo" />
+        <span className="mnnitLabel">MNNIT</span>
+      </div>
+      <div className="footerTitle">
+        <span>&#169; {year} CodeHub. All Rights Reserved.</span>
+      </div>
+      <div className="LinkContainer">
+        {/* <a href="mailto:computer.club@mnnit.ac.in" className="FooterLink">Contact Us</a> */}
+      </div>
+      <hr className="sectionDivider" />
+      <div className='additionalInfo'>
+        <div className='contributors'>
+          <h3>Do you wish to contribute to CodeHub?</h3>
+          <p className="contributeText">
+            CodeHub is open-sourced for MNNIT students to cultivate a vibrant culture of open-source learning within the college community.
+          </p>
+          <a
+            href="https://github.com/adityarai0705/CodeHub"
+            className="contributeLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="contributeButton">Visit CodeHub on GitHub</button>
+          </a>
+        </div>
+        <hr className="sectionDivider " />
+        <p className='mt-10'><b>Contributors</b></p>
+        <Contributors contributors={contributors} />
+        <br />
+      </div>
+    </footer>
 
   )
 }

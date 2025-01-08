@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { cn } from "../../lib/utils";
 import { BackgroundBeamsWithCollision } from "../../components/ui/background_beams_with_collision";
 import { Link } from 'react-router-dom';

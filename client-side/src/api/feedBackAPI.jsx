@@ -1,7 +1,7 @@
 // feedbackAPI.js
 import axios from 'axios';
 
-const server_base_url = process.env.REACT_APP_SERVER_BASE_URL;
+const server_base_url = import.meta.env.VITE_SERVER_BASE_URL;
 
 const submitFeedback = async (feedbackData) => {
     try {

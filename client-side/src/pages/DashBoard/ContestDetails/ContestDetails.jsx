@@ -1,4 +1,3 @@
-import React from 'react';
 import "./ContestDetails.css";
 
 function ContestCard(props) {
@@ -38,7 +37,7 @@ export default function ContestDetails(props) {
         contestCards[i] = tempcontestCards[n - i - 1];
     }
 
-    contestCards = contestCards.map( (contest, Index) => <ContestCard key={Index} contestID={contest.contestId} contestName={contest.contestName} contestRank={contest.rank} ratingGain={contest.newRating - contest.oldRating} />);
+    contestCards = contestCards.map((contest, Index) => <ContestCard key={Index} contestID={contest.contestId} contestName={contest.contestName} contestRank={contest.rank} ratingGain={contest.newRating - contest.oldRating} />);
 
     return (
         <div className='ContestDetailsContainer'>

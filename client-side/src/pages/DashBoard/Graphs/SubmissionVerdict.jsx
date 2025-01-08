@@ -1,4 +1,3 @@
-import React from 'react';
 import { ResponsiveContainer, PieChart, Pie, Tooltip, Cell } from 'recharts';
 
 export default function VerdictGraph({ verdictdata }) {
@@ -76,17 +75,17 @@ export default function VerdictGraph({ verdictdata }) {
               ))}
             </Pie>
             <Tooltip
-  formatter={(value) => `${((value / totalValue) * 100).toFixed(1)}%`}
-  contentStyle={{
-    backgroundColor: '#1E40AF', // Bright blue background (Tailwind `blue-800`)
-    borderRadius: '8px',
-    color: '#E0F2FE', // Off-white text (Tailwind `cyan-100`)
-    border: '1px solid #60A5FA', // Soft blue border (Tailwind `blue-400`)
-    padding: '8px', // Add some padding for a cleaner look
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)', // Subtle shadow for depth
-  }}
-  cursor={{ fill: 'rgba(96, 165, 250, 0.15)' }} // Light blue hover effect (Tailwind `blue-400`)
-/>
+              formatter={(value) => `${((value / totalValue) * 100).toFixed(1)}%`}
+              contentStyle={{
+                backgroundColor: '#1E40AF', // Bright blue background (Tailwind `blue-800`)
+                borderRadius: '8px',
+                color: '#E0F2FE', // Off-white text (Tailwind `cyan-100`)
+                border: '1px solid #60A5FA', // Soft blue border (Tailwind `blue-400`)
+                padding: '8px', // Add some padding for a cleaner look
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)', // Subtle shadow for depth
+              }}
+              cursor={{ fill: 'rgba(96, 165, 250, 0.15)' }} // Light blue hover effect (Tailwind `blue-400`)
+            />
 
           </PieChart>
         </ResponsiveContainer>

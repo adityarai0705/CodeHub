@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import '../pages.css';
-import './Noticeboard.css';
-import NavBarSecond from '../../components/NavBar/NavBarSecond';
-import NavSpace from '../../components/NavSpace';
-import Spinner from '../../components/Spinner/Spinner';
-import Alert from '../../components/Alert/Alert';
-import axios from 'axios';
-import Footer from '../../components/Footer/Footer';
-
-
+import { useEffect, useState } from "react";
+import "../pages.css";
+import "./Noticeboard.css";
+import NavBarSecond from "../../components/NavBar/NavBarSecond";
+import NavSpace from "../../components/NavSpace";
+import Spinner from "../../components/Spinner/Spinner";
+import Alert from "../../components/Alert/Alert";
+import axios from "axios";
+import Footer from "../../components/Footer/Footer";
 
 //notice format
 function Notice(props) {
@@ -17,7 +15,13 @@ function Notice(props) {
       <div className="notice-box">
         <div className="notice-title">{props.title}</div>
         <div className="notice-date">{props.date}</div>
-        <div className="notice-body"><pre style={{ fontFamily: 'sans-serif', justifyContent: 'space-evenly' }}>{props.body}</pre></div>
+        <div className="notice-body">
+          <pre
+            style={{ fontFamily: "sans-serif", justifyContent: "space-evenly" }}
+          >
+            {props.body}
+          </pre>
+        </div>
       </div>
     </div>
   );
@@ -34,68 +38,82 @@ function Notice(props) {
 //   );
 // }
 
-
 export default function NoticeBoard() {
-  const [PageHtml, setPageHtml] = useState(<>
-    <NavSpace />
-    <Spinner />
-  </>);
+  const [PageHtml, setPageHtml] = useState(
+    <>
+      <NavSpace />
+      <Spinner />
+    </>
+  );
 
   const updatePageHtml = async () => {
-
     try {
-      const NoticeboardAPIresponse = await axios.get(process.env.REACT_APP_SERVER_PATH + '/noticeboard');
+      const NoticeboardAPIresponse = await axios.get(
+        import.meta.env.VITE_SERVER_PATH + "/noticeboard"
+      );
       const noticeList = NoticeboardAPIresponse.data.data;
 
       // data is loaded.
       console.log(noticeList);
 
-
-      setPageHtml(<>
-        <div>
-          <div className="background-pink-blue" style={{ minHeight: '100vh' }}>
-            {/* <div id='navBarLandingPageContainer'>
+      setPageHtml(
+        <>
+          <div>
+            <div
+              className="background-pink-blue"
+              style={{ minHeight: "100vh" }}
+            >
+              {/* <div id='navBarLandingPageContainer'>
               <NavBarSecond />
             </div> */}
-            <NavSpace />
-            <div className='notice-heading'>Notice Board</div>
-            {noticeList.map((notice) => {
-              <Notice
-                key={notice._id}
-                title={notice.title}
-                date={notice.date}
-                body={notice.body}
-              />
-            })}
-            <div className='notice-footer'>
-              This was the last Notice from Computer Coding Club. Either no Notice prior to this was ever created or they have been deleted by the admins.
+              <NavSpace />
+              <div className="notice-heading">Notice Board</div>
+              {noticeList.map((notice) => {
+                <Notice
+                  key={notice._id}
+                  title={notice.title}
+                  date={notice.date}
+                  body={notice.body}
+                />;
+              })}
+              <div className="notice-footer">
+                This was the last Notice from Computer Coding Club. Either no
+                Notice prior to this was ever created or they have been deleted
+                by the admins.
+              </div>
             </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </>);
-    }
-    catch (err) {
+        </>
+      );
+    } catch (err) {
       setPageHtml(
         <>
           {/* <div id='navBarLandingPageContainer'>
             <NavBarSecond />
           </div> */}
           <NavSpace />
-          <div className="background-pink-blue" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} />
+          <div
+            className="background-pink-blue"
+            style={{
+              minHeight: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Alert
+              heading={"Couldn't fetch data"}
+              body={"Check your internet connection and try again.."}
+            />
           </div>
         </>
       );
     }
-  }
+  };
   useEffect(() => {
-
     updatePageHtml();
   }, []);
 
-
-  return (
-    <>{PageHtml}</>
-  );
+  return <>{PageHtml}</>;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import { useState, useContext } from 'react'
 import "./NavBar.css";
 import CodeTogetherSingleLine from "./Assets/Logos/CodeHubLarge.png";
 import CodeTogetherLogo from "./Assets/Logos/CodeTogetherLogo.png";
@@ -45,19 +45,19 @@ export default function NavBarSecond() {
                     <img onClick={() => navigate("/")} src={CodeTogetherSingleLine} alt="Code Together" />
                 </div>
                 <div id='navBar12Main'>
-                    {login && <><button onClick={() => { navigate(process.env.REACT_APP_BASE_URL + `/user-home/${userCfID}`) }} className='navBar121Main'>
+                    {login && <><button onClick={() => { navigate(import.meta.env.REACT_APP_BASE_URL + `/user-home/${userCfID}`) }} className='navBar121Main'>
                         Profile
                     </button>
-                        <button onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/leader-board")} className='navBar121Main'>
+                        <button onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/leader-board")} className='navBar121Main'>
                             Leader Board
                         </button>
-                        <button onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/education")} className='navBar121Main'>
+                        <button onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/education")} className='navBar121Main'>
                             Education
                         </button></>}
-                    <button onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/notice-board")} className='navBar121Main'>
+                    <button onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/notice-board")} className='navBar121Main'>
                         Notice Board
                     </button>
-                    <button onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/login")} id='navBar122Main'>
+                    <button onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/login")} id='navBar122Main'>
                         {login ? "Logout" : "Login"}
                     </button>
                 </div>
@@ -67,7 +67,7 @@ export default function NavBarSecond() {
             {/* -----------------HTML FOR MOBILE/TABLET EXPERIENCE--------------- */}
             <div id='navBar2Main'>
                 <div>
-                    <button onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/login")} id='navBar21Main'>
+                    <button onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/login")} id='navBar21Main'>
                         {login ? "Logout" : "Login"}
                     </button>
                 </div>
@@ -83,10 +83,10 @@ export default function NavBarSecond() {
                         <div id='navCloseMain'>
                             <div id='navCloseMain' className='gg-close'></div>
                         </div>
-                        <li className='text-dg' onClick={() => navigate(process.env.REACT_APP_BASE_URL + `/user-home/${userCfID}`)}>Profile</li>
-                        <li className='text-dg' onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/leader-board")} >Leader Board</li>
-                        <li className='text-dg' onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/education")}>Education</li>
-                        <li className='text-dg' onClick={() => navigate(process.env.REACT_APP_BASE_URL + "/notice-board")}>Notice Board</li>
+                        <li className='text-dg' onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + `/user-home/${userCfID}`)}>Profile</li>
+                        <li className='text-dg' onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/leader-board")} >Leader Board</li>
+                        <li className='text-dg' onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/education")}>Education</li>
+                        <li className='text-dg' onClick={() => navigate(import.meta.env.REACT_APP_BASE_URL + "/notice-board")}>Notice Board</li>
                         {/* <li onClick={() => navigate("/demoLink")}>Home</li>
                         <li onClick={() => navigate("/demoLink")} >Leader Board</li>
                         <li onClick={() => navigate("/demoLink")}>Education</li>

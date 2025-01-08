@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import RatingCard from '../../components/RatingCard';
 import ContestRating from './Graphs/ContestRating';
@@ -95,7 +95,7 @@ export default function UserHome() {
             );
             return;
         }
-        
+
 
         // API calls and Initialisation of Data Members
         try {
@@ -107,7 +107,7 @@ export default function UserHome() {
 
             userData.status = userDataAPI.data.status;
             userData.data = userDataAPI.data.result[0];
-            
+
             userRating.status = userRatingAPI.data.status;
             userRating.data = userRatingAPI.data.result;
 
@@ -208,27 +208,27 @@ export default function UserHome() {
 
             setPageHtml(
                 <>
-                <div className='bg-gradient-to-b from-gray-900 via-indigo-950 to-gray-950 px-1 md:px-4 py-6 pb-8'>
-                    <NavSpace />
-                    <div className='UserHomeOuterContainer'>
-                        <div className='UserHomeInnerContainer'>
-                            <UserProfile name={userDetail.name} rank={userData.data.rank} image={userData.data.titlePhoto} userDetail={userDetail}/>
-                            <div className='BottomUserHome'>
-                                <ContestRating ratingdata={userRating.data} />
-                                <PerformanceIndex ratingdata={userRating.data} />
-                                <Heatmap handle={cfID} />
-                                <SubmissionVerdict verdictdata={userSubmissionVerdict} />
-                                <ProblemRating questionratingdata={userSubmissionRating} />
-                                {/* <Languages languagedata={userLanguage} /> */}
-                            </div>
-                            <div>
-                                <ContestDetails contestData={userRating.data} />
-                                <ProblemDetails problemData={userSubmissions.data} />
+                    <div className='bg-gradient-to-b from-gray-900 via-indigo-950 to-gray-950 px-1 md:px-4 py-6 pb-8'>
+                        <NavSpace />
+                        <div className='UserHomeOuterContainer'>
+                            <div className='UserHomeInnerContainer'>
+                                <UserProfile name={userDetail.name} rank={userData.data.rank} image={userData.data.titlePhoto} userDetail={userDetail} />
+                                <div className='BottomUserHome'>
+                                    <ContestRating ratingdata={userRating.data} />
+                                    <PerformanceIndex ratingdata={userRating.data} />
+                                    <Heatmap handle={cfID} />
+                                    <SubmissionVerdict verdictdata={userSubmissionVerdict} />
+                                    <ProblemRating questionratingdata={userSubmissionRating} />
+                                    {/* <Languages languagedata={userLanguage} /> */}
+                                </div>
+                                <div>
+                                    <ContestDetails contestData={userRating.data} />
+                                    <ProblemDetails problemData={userSubmissions.data} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <Footer />
+                    <Footer />
                 </>
             );
         } catch (error) {

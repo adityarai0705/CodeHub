@@ -1,4 +1,3 @@
-import React from "react";
 import { Meteors } from "../ui/Meteors";
 import { Navigate } from "react-router-dom";
 
@@ -25,7 +24,7 @@ function ContestCard({ contestID, contestName, contestRank, ratingGain }) {
         >
           {arrow} {gainValue}
         </p>
-        <button className="mt-4 bg-gradient-to-r from-green-400 to-teal-400 px-4 py-2 rounded-md text-gray-900 font-semibold text-sm  transition" onClick={()=>{ window.location.href = "https://codeforces.com/contest/" + contestID }}>
+        <button className="mt-4 bg-gradient-to-r from-green-400 to-teal-400 px-4 py-2 rounded-md text-gray-900 font-semibold text-sm  transition" onClick={() => { window.location.href = "https://codeforces.com/contest/" + contestID }}>
           Explore
         </button>
       </div>
