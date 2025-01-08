@@ -39,7 +39,7 @@ export default function App() {
                     <Route path={"/dashBoard"} element={<ProtectedRoute>
                         <DashBoard />
                     </ProtectedRoute>} />
-                    <Route path={"/leader-board"} element={<ProtectedRoute>
+                    <Route path={"/leaderboard"} element={<ProtectedRoute>
                         <Leaderboard />
                     </ProtectedRoute>} />
                     <Route path={"/team-member"} element={<TeamMember />} />
