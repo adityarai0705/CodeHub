@@ -1,4 +1,5 @@
 const User = require("../../../model/userModel");
+const tempUser = require("../../../model/tempUserModel");
 const VerificationToken = require("../../../model/verificationTokenModel");
 const AsyncErrorHandler = require("../../../ErrorHandlers/async_error_handler");
 
@@ -17,7 +18,7 @@ const verifyToken = AsyncErrorHandler(async (req, res, next) => {
         }
 
         //Find user with corresponsding email in database
-        const user = await User.findOne({ email: tokenExists.email });
+        const user = await tempUser.findOne({ email: tokenExists.email });
         if (!user) {
             return res.status(400).json({ success: false, message: "User not found" });
         }

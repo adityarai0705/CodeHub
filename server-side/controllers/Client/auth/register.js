@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const Joi = require('joi');
 const User = require("../../../model/userModel");
+const tempUser = require("../../../model/tempUserModel");
 const axios = require("axios");
 const AsyncErrorHandler = require("../../../ErrorHandlers/async_error_handler");
 const utils = require("../../../utils/auth/auth.utils")
@@ -24,7 +25,7 @@ const Register = AsyncErrorHandler(async (req, res, next) => {
     try {
         try {
             //Check authenticity of codeforces Id
-            const cfResponse = await axios.get(` https://codeforces.com/api/user.info?handles=${cfID}`)
+            const cfResponse = await axios.get(`https://codeforces.com/api/user.info?handles=${cfID}`)
             if (!cfResponse.data || cfResponse.data.status !== 'OK') {
                 return res.status(400).json({ success: false, message: "Invalid codeforces ID" });
             }
@@ -60,10 +61,10 @@ const Register = AsyncErrorHandler(async (req, res, next) => {
             email,
             password: hashedPassword
         };
-
-        //save the user to database
-        const newUser = new User(user);
-        await newUser.save();
+        
+        //saving the data in a temporary user model which will be deleted at the time of saving actual user
+        const newTempUser = new tempUser(user);
+        await newTempUser.save();
 
         //Generate new Verification tokens
         const verificationCode = utils.generateVerificationCode();
@@ -84,7 +85,7 @@ const Register = AsyncErrorHandler(async (req, res, next) => {
         //Send response to client
         res.status(201).json({
             success: true,
-            message: "User registered successfully. Please verify your codeforces Id",
+            message: "Now please verify your codeforces Id and Email to complete the Registration",
             emailVerified: false
         })
     } catch (error) {
