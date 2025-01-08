@@ -1,4 +1,6 @@
 const User = require("../../../model/userModel");
+const tempUser = require("../../../model/tempUserModel");
+
 const AsyncErrorHandler = require("../../../ErrorHandlers/async_error_handler");
 const CfVerificationRequestToken = require("../../../model/cfVerificationRequestModel")
 
@@ -14,7 +16,7 @@ const generateCfVerificationRequestToken = AsyncErrorHandler(async (req, res, ne
 
     try {
         //Check if user already exists in database
-        const user = await User.findOne({ cfID });
+        const user = await User.findOne({ cfID }) || await tempUser.findOne({ cfID });
         if (!user) {
             return res.status(400).json({ success: false, message: "User not found" });
         }

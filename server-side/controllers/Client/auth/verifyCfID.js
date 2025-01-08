@@ -1,4 +1,6 @@
 const User = require("../../../model/userModel");
+const tempUser = require("../../../model/tempUserModel");
+
 const AsyncErrorHandler = require("../../../ErrorHandlers/async_error_handler");
 const CfVerificationRequestToken = require("../../../model/cfVerificationRequestModel")
 const axios = require("axios");
@@ -14,7 +16,7 @@ const VerifyCfID = AsyncErrorHandler(async (req, res, next) => {
 
     try {
         //Check if user already exists in database
-        const user = await User.findOne({ cfID });
+        const user = await tempUser.findOne({ cfID });
         if (!user) {
             return res.status(400).json({ success: false, message: "User not found" });
         }
@@ -78,8 +80,24 @@ const VerifyCfID = AsyncErrorHandler(async (req, res, next) => {
         user.cfVerified = true;
         await user.save();
 
+        //after email and cfid both are verified
+        //creating new user
+        const newUser = new User({
+            cfID: user.cfID,
+            password: user.password,
+            username: user.username,
+            email: user.email,
+            emailVerified: true,
+            cfVerified: true
+    });
+        await newUser.save();
+
+        //delete the temporary user
+        await tempUser.deleteOne({ cfID });
+
         //Success response to client
         res.status(200).json({ success: true, message: "cfID verified successfully" });
+
     }
     catch (error) {
         next(error);
