@@ -1,4 +1,8 @@
 const {
+    createNotice,
+    deleteNotice,
+    deleteUser,
+    promoteUserToAdmin,
     educationCategories,
     videos,
     leaderboard,

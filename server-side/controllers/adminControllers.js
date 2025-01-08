@@ -118,6 +118,26 @@ module.exports.noticeCreate = async (req, res, next) => {
 
 };
 
+module.exports.deleteUser = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await Users.findByIdAndDelete(id);
+        return res.json({ status: true, msg: "User deleted successfully" });
+    } catch (ex) {
+        next(ex);
+    }
+};
+
+module.exports.promoteUserToAdmin = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await Users.findByIdAndUpdate(id, { isAdmin: true });
+        return res.json({ status: true, msg: "User promoted to admin successfully" });
+    } catch (ex) {
+        next(ex);
+    }
+};
+
 module.exports.educationCategories = async (req, res, next) => {
     try {
         let cookieID;
