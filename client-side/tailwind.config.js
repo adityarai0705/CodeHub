@@ -3,9 +3,9 @@ import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColo
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  darkMode: "class",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ], darkMode: "class",
   theme: {
     extend: {
       boxShadow: {
