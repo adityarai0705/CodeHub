@@ -7,6 +7,7 @@ const checkSession = require("./auth/checkSession")
 const userFeedback = require("./userFeedBack");
 const logout = require("./auth/logout");
 const ForgetPassword = require("./auth/ForgetPassword");
+const checkUser = require("./auth/checkUser");
 module.exports = {
     login,
     register,
@@ -16,5 +17,6 @@ module.exports = {
     checkSession,
     userFeedback,
     logout,
-    ForgetPassword
+    ForgetPassword,
+    checkUser
 };

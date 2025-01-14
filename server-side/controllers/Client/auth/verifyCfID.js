@@ -93,7 +93,7 @@ const VerifyCfID = AsyncErrorHandler(async (req, res, next) => {
         await newUser.save();
 
         //delete the temporary user
-        await tempUser.deleteOne({ cfID });
+        await tempUser.findByIdAndDelete(user._id);
 
         //Success response to client
         res.status(200).json({ success: true, message: "cfID verified successfully" });

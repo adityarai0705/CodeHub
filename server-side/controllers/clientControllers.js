@@ -47,23 +47,23 @@ module.exports.videos = async (req, res, next) => {
         next(ex);
     }
 };
-module.exports.leaderboard = async (req, res, next) => {
-    try {
-        const {decoded}= req;
-        const {cookieID}= decoded;
-        const session = await ClientSessions.findOne({cookieID});
-        if (!session || cookieID !== session.cookieID) {
-            return res.status(401).json({ status: false, msg: "Session expired or invalid" });
-        }
+// module.exports.leaderboard = async (req, res, next) => {
+//     try {
+//         const {decoded}= req;
+//         const {cookieID}= decoded;
+//         const session = await ClientSessions.findOne({cookieID});
+//         if (!session || cookieID !== session.cookieID) {
+//             return res.status(401).json({ status: false, msg: "Session expired or invalid" });
+//         }
 
-        const cfID = await Users.find().select(["cfID"]);
-        return res.json({ status: true, data: cfID });
-    }
-    catch (error) {
-        next(error);
-    }
+//         const cfID = await Users.find({ emailVerified: true, cfVerified: true }).select(["cfID"]);
+//         return res.json({ status: true, data: cfID });
+//             }
+//     catch (error) {
+//         next(error);
+//     }
 
-};
+// };
 
 module.exports.register = async (req, res, next) => {
     try {
