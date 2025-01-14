@@ -36,14 +36,40 @@ const Register = AsyncErrorHandler(async (req, res, next) => {
             }
             return res.status(500).json({ success: false, message: "An error occurred while verifying codeforces ID" });
         }
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         //Check if the user already exists in database 
         const existingUser = await User.findOne({ $or: [{ email }, { cfID }, { username }] });
-
         if (existingUser && !existingUser.emailVerified) {
-            //Delete unverified user
-            await User.deleteOne({ _id: existingUser._id });
-            await VerificationToken.deleteOne({ email: existingUser.email });
+            await User.findByIdAndUpdate(existingUser._id, {
+                $set: {
+                    username,
+                    cfID,
+                    password:hashedPassword
+                }
+            }).save();
+            await VerificationToken.deleteOne({email:email})
+            //Generate new Verification tokens
+            const verificationCode = utils.generateVerificationCode();
+            //Create a new entry in verification token model
+            const token = new VerificationToken({
+                email: email,
+                code: verificationCode
+            })
+            await token.save();
+
+            //Generate email
+            const subject = "Email Verification";
+            const text = utils.createVerificationEmail({ verificationCode, subject });
+
+            //Send email
+            await SendEmail(email, subject, text);
+            return res.status(201).json({
+                success: true,
+                message: "Now please verify your codeforces Id and Email to complete the Registration",
+                emailVerified: false
+            })
+
         }
         else if (existingUser && existingUser.cfVerified) {
             return res.status(400).json({
@@ -52,8 +78,42 @@ const Register = AsyncErrorHandler(async (req, res, next) => {
             })
         }
 
-        //Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        //saving the data in a temporary user model which will be deleted at the time of saving actual user
+        const tempCheck = await tempUser.findOne({ $or: [{ email }, { cfID }, { username }] });
+        if(tempCheck && !tempCheck.emailVerified) {
+            await tempUser.findByIdAndUpdate(tempCheck._id,{
+                $set: {
+                    username,
+                    cfID,
+                    password: hashedPassword
+                }
+            }
+            );
+            await VerificationToken.deleteOne({email:email});
+            //Generate new Verification tokens
+            const verificationCode = utils.generateVerificationCode();
+            //Create a new entry in verification token model
+            const token = new VerificationToken({
+                email: email,
+                code: verificationCode
+            })
+            await token.save();
+
+            //Generate email
+            const subject = "Email Verification";
+            const text = utils.createVerificationEmail({ verificationCode, subject });
+
+            //Send email
+            await SendEmail(email, subject, text);
+            return res.status(201).json({
+                success: true,
+                message: "Now please verify your codeforces Id and Email to complete the Registration",
+                emailVerified: false
+            })
+
+        }
+
         //Create new user
         let user = {
             username,
@@ -62,7 +122,6 @@ const Register = AsyncErrorHandler(async (req, res, next) => {
             password: hashedPassword
         };
         
-        //saving the data in a temporary user model which will be deleted at the time of saving actual user
         const newTempUser = new tempUser(user);
         await newTempUser.save();
 
@@ -83,7 +142,7 @@ const Register = AsyncErrorHandler(async (req, res, next) => {
         await SendEmail(email, subject, text);
 
         //Send response to client
-        res.status(201).json({
+        return res.status(201).json({
             success: true,
             message: "Now please verify your codeforces Id and Email to complete the Registration",
             emailVerified: false

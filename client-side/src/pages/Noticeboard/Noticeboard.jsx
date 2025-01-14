@@ -44,12 +44,8 @@ export default function NoticeBoard() {
   const updatePageHtml = async () => {
 
     try {
-      const NoticeboardAPIresponse = await axios.get(process.env.REACT_APP_SERVER_PATH + '/noticeboard');
+      const NoticeboardAPIresponse = await axios.get(process.env.REACT_APP_SERVER_BASE_URL + '/noticeboard');
       const noticeList = NoticeboardAPIresponse.data.data;
-
-      // data is loaded.
-      console.log(noticeList);
-
 
       setPageHtml(<>
         <div>
