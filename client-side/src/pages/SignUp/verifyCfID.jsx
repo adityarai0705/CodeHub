@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 
 function VerifyCfID() {
 
-    //
     const TOTAL_TIME = 120; // Total time in seconds (2 minutes)
     const problemLink = "https://codeforces.com/problemset/problem/231/A"; // Problem to be submitted and get compilation error.
 

@@ -7,7 +7,6 @@ import axios from 'axios';
 
 import NavSpace from '../../components/NavSpace';
 import Spinner from '../../components/Spinner/Spinner';
-import NavBarSecond from '../../components/NavBar/NavBarSecond';
 import Alert from '../../components/Alert/Alert';
 import Footer from '../../components/Footer/Footer';
 import './VideoLists.css';
@@ -56,9 +55,6 @@ export default function VideoLists(props) {
             setPageHtml(<>
                 <div>
                     <div className="background-pink-blue" style={{ minHeight: '100vh' }}>
-                        <div className='navBarContainer'>
-                            <NavBarSecond />
-                        </div>
                         <NavSpace />
                         <div className='videoList-heading'><small>Education</small>/{educationCategory}</div>
                         <div className='videoContainer'>
@@ -72,9 +68,6 @@ export default function VideoLists(props) {
             //if there is an error in fetching the videos, display an alert.
             setPageHtml(
                 <>
-                    <div id='navBarLandingPageContainer'>
-                        <NavBarSecond />
-                    </div>
                     <NavSpace />
                     <div className="background-pink-blue" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Alert heading={"Couldn't fetch data"} body={"Check your internet connection and try again.."} />
