@@ -92,6 +92,11 @@ const HamburgerMenu = () => {
             <li className="py-2 px-4 hover:text-blue1">
               <a href="/notice-board">Notice Board</a>
             </li>
+            {auth && (
+              <li className="py-2 px-4 hover:text-blue1">
+<a href="/leader-board">Leaderboard</a>
+              </li>
+            )}
           </ul>
 
           {/* Additional profile menu if the user is authenticated, otherwise show the login button */}
